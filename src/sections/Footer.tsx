@@ -50,7 +50,7 @@ export default function Footer() {
             iAS Live Music Review
           </p>
 
-          <h2 className="text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight mb-6 leading-[1.05]">
+          <h2 className="text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight mb-6 leading-[1.05] text-white">
             Bring your sound
             <br />
             <span
