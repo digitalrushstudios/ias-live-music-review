@@ -6,6 +6,7 @@ import Hero from './sections/Hero'
 import FeaturedReviews from './sections/FeaturedReviews'
 import About from './sections/About'
 import CoverageCategories from './sections/CoverageCategories'
+import ArtistOfTheQuarter from './sections/ArtistOfTheQuarter'
 import ArtistSubmissionCTA from './sections/ArtistSubmissionCTA'
 import Gallery from './sections/Gallery'
 import Stats from './sections/Stats'
@@ -36,6 +37,7 @@ export default function App() {
           <FeaturedReviews />
           <About />
           <CoverageCategories />
+          <ArtistOfTheQuarter />
           <ArtistSubmissionCTA />
           <Gallery />
           <Stats />
