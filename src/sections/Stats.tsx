@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import type { CSSProperties } from 'react'
 import { useInView } from 'framer-motion'
 
 const STATS = [
@@ -40,7 +41,7 @@ export default function Stats() {
           By the Numbers
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x" style={{ '--tw-divide-opacity': 1 } as React.CSSProperties}>
+        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x" style={{ '--tw-divide-opacity': 1 } as CSSProperties}>
           {STATS.map((stat, i) => (
             <div
               key={i}
