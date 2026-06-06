@@ -1,10 +1,22 @@
 import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollAnimation'
 
 const PILLARS = [
-  { label: 'Editorial Voice',  desc: 'Every review and feature is written with critical depth and cultural context.' },
-  { label: 'Artist-First',     desc: 'Coverage that respects and amplifies the work of independent artists.' },
-  { label: 'Community-Rooted', desc: 'Built for the fans, venues, and promoters who make live music happen.' },
-  { label: 'Culture-Forward',  desc: 'We cover the full ecosystem — from underground clubs to major festivals.' },
+  {
+    label: 'Honest Feedback',
+    desc: '"Like Love or Lose It" — real-time reactions from live audiences and guests who tell artists the unfiltered truth about their music.',
+  },
+  {
+    label: 'Artist-First Platform',
+    desc: 'From music reviews and publication features to registration services and newsletter advertising — every offering is built around the independent artist.',
+  },
+  {
+    label: 'Community & Culture',
+    desc: 'Born in the Bronx, built for creatives everywhere. iAS connects artists with fans, industry insiders, and opportunities across media, TV, and digital.',
+  },
+  {
+    label: 'Multimedia Ecosystem',
+    desc: 'iAS is growing into a full ecosystem — media, publishing, live experiences, education, and strategic exposure — designed to help artists get organized, visible, and discovered.',
+  },
 ]
 
 export default function About() {
@@ -34,7 +46,7 @@ export default function About() {
                 borderColor: 'rgba(139,92,246,0.5)',
               }}
             >
-              "Live music deserves to be
+              "We're the people that help independent artists get
               <span
                 style={{
                   background: 'linear-gradient(90deg, #8B5CF6 0%, #38BDF8 100%)',
@@ -43,9 +55,9 @@ export default function About() {
                   backgroundClip: 'text',
                 }}
               >
-                {' '}written about{' '}
+                {' '}organized, visible,{' '}
               </span>
-              the way it feels — loud, honest, and without compromise."
+              and discovered."
             </blockquote>
 
             <div
@@ -54,18 +66,23 @@ export default function About() {
             />
 
             <p className="text-muted text-base leading-relaxed mb-5">
-              iAS Live Music Review is a culture-driven media platform dedicated to
-              the artists, fans, venues, and promoters who make live music move.
-              Founded under <strong className="text-text font-semibold">iCREEUPREE LLC</strong>,
-              we publish live performance reviews, artist spotlights, concert
-              photography, in-depth interviews, and stories that capture the energy
-              of a room that can never be replicated.
+              <strong className="text-text font-semibold">iAS Multi Media Group</strong> is a multimedia
+              ecosystem connecting independent artists, brands, and creatives with exposure, education,
+              and opportunity. Hosted by <strong className="text-text font-semibold">Double V & Lady Buggg</strong>,
+              the iAS Live Music Review show gives indie artists a real stage — played live, reacted to in real
+              time, with honest feedback from guests, industry insiders, and a global audience.
+            </p>
+
+            <p className="text-muted text-base leading-relaxed mb-5">
+              Founded by <strong className="text-text font-semibold">Joli Harris</strong> and operating
+              under <strong className="text-text font-semibold">iCREEUPREE LLC</strong> out of the Bronx, NY —
+              iAS has aired on Verizon & Optimum TV, built a podcast audience on Apple Podcasts and Spotify,
+              and published artists across its print and digital platforms.
             </p>
 
             <p className="text-muted text-base leading-relaxed">
-              From intimate club sets to festival stages, from debut shows to
-              milestone performances — if it happened live, it deserves to be
-              remembered.
+              Over the next 3–5 years, iAS aims to become a full multimedia ecosystem: media, publishing,
+              live experiences, education, and strategic exposure for independent creators at every level.
             </p>
           </div>
 

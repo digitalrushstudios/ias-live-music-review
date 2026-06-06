@@ -3,10 +3,10 @@ import { motion } from 'framer-motion'
 import gsap from 'gsap'
 
 const TICKER = [
-  'Live Music Reviews', '✦', 'Artist Spotlights', '✦',
-  'Concert Photography', '✦', 'Emerging Artists', '✦',
-  'Music Culture', '✦', 'Venue Features', '✦',
-  'Industry Interviews', '✦', 'New Music Features', '✦',
+  'Independent Artist Spotlight', '✦', 'Like Love or Lose It', '✦',
+  'Live Music Reviews', '✦', 'iAS Publication', '✦',
+  'Artist Development', '✦', 'Music & Video Submissions', '✦',
+  'Newsletter Features', '✦', 'Get Organized. Get Visible. Get Discovered.', '✦',
 ]
 
 export default function Hero() {
@@ -161,8 +161,8 @@ export default function Hero() {
             className="text-base md:text-lg max-w-xl leading-relaxed mb-10 mx-auto"
             style={{ color: '#9B9BA3' }}
           >
-            Reviews, artist stories, concert coverage, and culture-driven media built
-            for the artists and fans who keep live music alive.
+            The multimedia platform connecting independent artists with honest reviews,
+            real exposure, and the tools to get organized, visible, and discovered.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

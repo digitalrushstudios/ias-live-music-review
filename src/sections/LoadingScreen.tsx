@@ -92,7 +92,7 @@ export default function LoadingScreen({ onComplete }: Props) {
               transition={{ duration: 1.1, delay: 0.1 }}
               className="text-[10px] font-semibold uppercase text-muted"
             >
-              iCREEUPREE LLC
+              iAS Multi Media Group
             </motion.span>
 
             {/* iAS wordmark */}

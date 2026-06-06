@@ -2,9 +2,9 @@ import { useEffect, useState, useRef } from 'react'
 import { useInView } from 'framer-motion'
 
 const STATS = [
-  { end: 500,  suffix: '+', label: 'Live Shows Covered',     sub: 'and counting' },
-  { end: 200,  suffix: '+', label: 'Artists Featured',        sub: 'across all genres' },
-  { end: 1200, suffix: '+', label: 'Music Stories Published', sub: 'reviews, features & more' },
+  { end: 500,  suffix: '+', label: 'Artists Reviewed',         sub: 'on the live iAS show' },
+  { end: 1000, suffix: '+', label: 'Submissions Received',     sub: 'music & video across all genres' },
+  { end: 8,    suffix: '+', label: 'Platforms Reached',        sub: 'TV, podcast, social & digital' },
 ]
 
 function AnimatedNumber({ end, suffix }: { end: number; suffix: string }) {

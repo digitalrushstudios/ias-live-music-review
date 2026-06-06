@@ -1,34 +1,34 @@
 import { motion } from 'framer-motion'
-import { Mic2, MessageSquare, Camera, Newspaper, ArrowUpRight } from 'lucide-react'
+import { Mic2, BookOpen, Newspaper, Radio, ArrowUpRight } from 'lucide-react'
 import { useStaggerReveal } from '../hooks/useScrollAnimation'
 
 const CATEGORIES = [
   {
     num:   '01',
     icon:  Mic2,
-    label: 'Live Reviews',
-    desc:  'In-depth, honest critiques of live performances from club gigs to festival headliners. Rated on energy, setlist, stage presence, and crowd connection.',
+    label: 'Music & Video Reviews',
+    desc:  '"Like Love or Lose It" — submit your music or video and get it played live on the iAS show. Hosts Double V & Lady Buggg react in real time alongside guests and a live audience.',
     color: '#8B5CF6',
   },
   {
     num:   '02',
-    icon:  MessageSquare,
-    label: 'Artist Interviews',
-    desc:  'Conversations with independent artists, emerging acts, and established performers about their process, journey, and the reality of life on the road.',
+    icon:  BookOpen,
+    label: 'iAS Publication',
+    desc:  'Get featured in the iAS Publication — a print and digital platform that promotes and markets independent artists, bringing attention to your music, brand, and story.',
     color: '#38BDF8',
   },
   {
     num:   '03',
-    icon:  Camera,
-    label: 'Concert Photography',
-    desc:  "Visual storytelling from the pit and the crowd. Photography that captures the light, sweat, and emotion words alone can't hold.",
+    icon:  Newspaper,
+    label: 'Newsletter Advertising',
+    desc:  'Reach the iAS audience directly through newsletter ad placements. Put your music, release, or brand in front of a community that actively supports independent artists.',
     color: '#8B5CF6',
   },
   {
     num:   '04',
-    icon:  Newspaper,
-    label: 'Music News & Culture',
-    desc:  "Commentary, features, and cultural analysis on the stories shaping live music — from venue closures to streaming's impact on touring.",
+    icon:  Radio,
+    label: 'Registration Services',
+    desc:  'Artist registration and onboarding support to get you set up on the iAS platform — so you can access submissions, features, and exposure opportunities the right way.',
     color: '#38BDF8',
   },
 ]
@@ -40,15 +40,15 @@ export default function CoverageCategories() {
     <section id="interviews" className="py-24 md:py-32 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-16">
         <span className="block text-[10px] font-semibold tracking-[0.28em] uppercase text-muted mb-4">
-          What We Cover
+          What We Offer
         </span>
         <h2 className="text-4xl md:text-5xl font-black tracking-tight">
-          Coverage{' '}
+          Our{' '}
           <span
             style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}
             className="accent-gradient-text"
           >
-            Categories
+            Services
           </span>
         </h2>
       </div>
@@ -70,7 +70,7 @@ export default function CoverageCategories() {
                 style={{ background: `radial-gradient(ellipse 90% 70% at 50% 120%, ${cat.color}1A 0%, transparent 70%)` }}
               />
 
-              {/* Top row: number + icon */}
+              {/* Top row: icon + number */}
               <div className="flex items-start justify-between">
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110"
@@ -80,10 +80,7 @@ export default function CoverageCategories() {
                 </div>
                 <span
                   className="text-[28px] font-black leading-none tabular-nums"
-                  style={{
-                    color: 'transparent',
-                    WebkitTextStroke: `1px ${cat.color}35`,
-                  }}
+                  style={{ color: 'transparent', WebkitTextStroke: `1px ${cat.color}35` }}
                 >
                   {cat.num}
                 </span>
@@ -91,10 +88,10 @@ export default function CoverageCategories() {
 
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold text-text text-base">{cat.label}</h3>
+                  <h3 className="font-bold text-text text-base leading-snug">{cat.label}</h3>
                   <ArrowUpRight
                     size={14}
-                    className="text-muted opacity-0 group-hover:opacity-100 group-hover:text-text transition-all duration-200 shrink-0"
+                    className="text-muted opacity-0 group-hover:opacity-100 group-hover:text-text transition-all duration-200 shrink-0 ml-2"
                   />
                 </div>
                 <p className="text-sm text-muted leading-relaxed">{cat.desc}</p>

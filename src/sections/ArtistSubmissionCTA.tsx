@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Send, Mic2, Music, Star, MessageCircle, Film } from 'lucide-react'
+import { ArrowRight, Send, Mic2, Music, BookOpen, Newspaper, Radio } from 'lucide-react'
 import { useScrollReveal } from '../hooks/useScrollAnimation'
 
 const TAGS = [
-  { label: 'Live Show',          icon: Mic2 },
-  { label: 'New Release',        icon: Music },
-  { label: 'Artist Feature',     icon: Star },
-  { label: 'Interview Request',  icon: MessageCircle },
-  { label: 'Concert Recap',      icon: Film },
+  { label: 'Music Review',       icon: Mic2 },
+  { label: 'Video Review',       icon: Music },
+  { label: 'Publication Feature',icon: BookOpen },
+  { label: 'Newsletter Ad',      icon: Newspaper },
+  { label: 'Registration',       icon: Radio },
 ]
 
 export default function ArtistSubmissionCTA() {
@@ -25,7 +25,7 @@ export default function ArtistSubmissionCTA() {
           className="relative overflow-hidden rounded-3xl border border-stroke p-10 md:p-16 text-center"
           style={{ background: '#050506' }}
         >
-          {/* Gradient glow background */}
+          {/* Gradient glow */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -33,13 +33,11 @@ export default function ArtistSubmissionCTA() {
                 'radial-gradient(ellipse 75% 65% at 50% 105%, rgba(139,92,246,0.22) 0%, rgba(56,189,248,0.08) 55%, transparent 100%)',
             }}
           />
-
           {/* Top gradient rule */}
           <div
             className="absolute top-0 left-[15%] right-[15%] h-px"
             style={{ background: 'linear-gradient(90deg, transparent, #8B5CF6, #38BDF8, transparent)' }}
           />
-
           {/* Corner decorations */}
           <div className="absolute top-6 left-6 w-8 h-8 border-l border-t rounded-tl-lg" style={{ borderColor: 'rgba(139,92,246,0.25)' }} />
           <div className="absolute top-6 right-6 w-8 h-8 border-r border-t rounded-tr-lg" style={{ borderColor: 'rgba(56,189,248,0.25)' }} />
@@ -47,7 +45,6 @@ export default function ArtistSubmissionCTA() {
           <div className="absolute bottom-6 right-6 w-8 h-8 border-r border-b rounded-br-lg" style={{ borderColor: 'rgba(56,189,248,0.25)' }} />
 
           <div className="relative z-10">
-            {/* Live badge */}
             <span
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase mb-8 border"
               style={{
@@ -61,23 +58,26 @@ export default function ArtistSubmissionCTA() {
             </span>
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-[1.06]">
-              Want your music or live show
+              Ready to get visible
               <br />
               <span
                 style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}
                 className="accent-gradient-text"
               >
-                featured?
+                and discovered?
               </span>
             </h2>
 
-            <p className="text-muted text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10">
-              Submit your latest release, upcoming show, or artist story for potential
-              coverage on iAS Live Music Review. We cover emerging artists, independent
-              acts, and live performances across all genres.
+            <p className="text-muted text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-3">
+              Submit your music or video for a live review on the iAS show — where Double V & Lady Buggg
+              and a real audience give you honest feedback with the "Like Love or Lose It" format.
+            </p>
+            <p className="text-muted text-sm max-w-lg mx-auto leading-relaxed mb-10">
+              Also available: publication features, newsletter advertising, and registration services
+              to help you get organized and amplified across the iAS platform.
             </p>
 
-            {/* Tag pills with icons */}
+            {/* Service tags */}
             <ul className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
               {TAGS.map(tag => {
                 const Icon = tag.icon
@@ -95,8 +95,9 @@ export default function ArtistSubmissionCTA() {
             </ul>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              {/* REPLACE href with your real submission form URL */}
               <motion.a
-                href="#"
+                href="mailto:iaslivemusicreview@gmail.com"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.96 }}
                 className="inline-flex items-center gap-2.5 px-9 py-4 rounded-full font-bold text-sm text-white transition-shadow duration-300 hover:shadow-[0_0_48px_rgba(139,92,246,0.55)]"
@@ -114,6 +115,13 @@ export default function ArtistSubmissionCTA() {
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </motion.a>
             </div>
+
+            <p className="mt-5 text-xs text-muted/50">
+              Or email MP3s directly to{' '}
+              <a href="mailto:iaslivemusicreview@gmail.com" className="hover:text-muted transition-colors underline underline-offset-2">
+                iaslivemusicreview@gmail.com
+              </a>
+            </p>
           </div>
         </div>
       </div>

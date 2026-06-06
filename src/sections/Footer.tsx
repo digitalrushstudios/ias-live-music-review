@@ -3,32 +3,32 @@ import { Mail, Instagram, Youtube, Facebook, Music2, ArrowUpRight } from 'lucide
 
 const FOOTER_NAV = [
   {
-    heading: 'Content',
+    heading: 'Services',
     links: [
-      { label: 'Live Reviews',      href: '#reviews' },
-      { label: 'Artist Spotlights', href: '#artists' },
-      { label: 'Interviews',        href: '#interviews' },
-      { label: 'Concert Recaps',    href: '#reviews' },
-      { label: 'New Music',         href: '#reviews' },
+      { label: 'Music & Video Reviews', href: '#reviews' },
+      { label: 'iAS Publication',       href: '#reviews' },
+      { label: 'Newsletter Advertising',href: '#reviews' },
+      { label: 'Registration Services', href: '#interviews' },
+      { label: 'Artist Spotlights',     href: '#artists' },
     ],
   },
   {
     heading: 'Platform',
     links: [
-      { label: 'About iAS',    href: '#artists' },
-      { label: 'Submit Music', href: '#submit' },
-      { label: 'Gallery',      href: '#events' },
-      { label: 'Events',       href: '#events' },
-      { label: 'Contact',      href: '#contact' },
+      { label: 'About iAS',      href: '#artists' },
+      { label: 'Submit Music',   href: '#submit' },
+      { label: 'Gallery',        href: '#events' },
+      { label: 'iAS Podcast',    href: 'https://open.spotify.com/show/2daiojFZPhHF9dRaC1GlNt' },
+      { label: 'Contact',        href: '#contact' },
     ],
   },
 ]
 
 const SOCIALS = [
-  { label: 'Instagram', icon: Instagram, href: 'https://instagram.com/iaslivemusicreview' },
-  { label: 'YouTube',   icon: Youtube,   href: 'https://youtube.com/@iASmusicreview' },
-  { label: 'TikTok',    icon: Music2,    href: 'https://tiktok.com/@iaslivemusicreview' },
-  { label: 'Facebook',  icon: Facebook,  href: 'https://facebook.com/iaslivemusicreview' },
+  { label: 'Instagram', handle: '@iasmusic',          icon: Instagram, href: 'https://instagram.com/iasmusic' },
+  { label: 'YouTube',   handle: '@iasmusic',          icon: Youtube,   href: 'https://youtube.com/c/IASMusic' },
+  { label: 'TikTok',    handle: '@iaslivemusicreview',icon: Music2,    href: 'https://tiktok.com/@iaslivemusicreview' },
+  { label: 'Facebook',  handle: '@IASMusic',          icon: Facebook,  href: 'https://facebook.com/IASMusic' },
 ]
 
 export default function Footer() {
@@ -62,7 +62,8 @@ export default function Footer() {
           </h2>
 
           <p className="text-muted text-base mb-10 leading-relaxed">
-            Submit your music, show, or story — and let iAS amplify what you are building.
+            Submit your music or video for a live review — and let iAS help you get
+            organized, visible, and discovered across every platform we reach.
           </p>
 
           <motion.a
@@ -97,16 +98,16 @@ export default function Footer() {
             </div>
 
             <p className="text-sm text-muted leading-relaxed mb-6 max-w-xs">
-              Culture-driven media for live music. Reviews, spotlights, photography,
-              and stories that keep the scene alive.
+              The multimedia ecosystem connecting independent artists, brands, and creatives
+              with exposure, education, and opportunity. Hosted by Double V & Lady Buggg.
             </p>
 
             <a
-              href="mailto:hello@iaslivemusicreview.com"
+              href="mailto:iaslivemusicreview@gmail.com"
               className="inline-flex items-center gap-2 text-sm text-muted hover:text-text transition-colors group mb-5"
             >
               <Mail size={13} className="shrink-0" />
-              <span className="group-hover:underline">hello@iaslivemusicreview.com</span>
+              <span className="group-hover:underline">iaslivemusicreview@gmail.com</span>
             </a>
 
             <div className="flex items-center gap-2 text-[10px] font-semibold tracking-[0.14em] uppercase" style={{ color: '#38BDF8' }}>
@@ -166,7 +167,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="text-xs text-muted/50 hover:text-muted transition-colors"
                   >
-                    @ias{s.label.toLowerCase()}
+                    {s.handle}
                   </a>
                 </li>
               ))}
@@ -180,7 +181,7 @@ export default function Footer() {
           style={{ borderColor: '#24242A' }}
         >
           <p className="text-xs text-muted">
-            &copy; {new Date().getFullYear()} iCREEUPREE LLC — iAS Live Music Review. All rights reserved.
+            &copy; {new Date().getFullYear()} iAS Multi Media Group — Powered by iCREEUPREE LLC. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-xs text-muted hover:text-text transition-colors">Privacy Policy</a>
