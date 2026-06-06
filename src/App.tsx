@@ -3,6 +3,7 @@ import LoadingScreen from './sections/LoadingScreen'
 import Navbar from './components/Navbar'
 import CustomCursor from './components/CustomCursor'
 import Hero from './sections/Hero'
+import YouTubeFeature from './sections/YouTubeFeature'
 import FeaturedReviews from './sections/FeaturedReviews'
 import About from './sections/About'
 import CoverageCategories from './sections/CoverageCategories'
@@ -34,6 +35,7 @@ export default function App() {
         <Navbar />
         <main>
           <Hero />
+          <YouTubeFeature />
           <FeaturedReviews />
           <About />
           <CoverageCategories />

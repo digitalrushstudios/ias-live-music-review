@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import type { CSSProperties } from 'react'
 import { useInView } from 'framer-motion'
 
 const STATS = [
@@ -33,19 +34,19 @@ export default function Stats() {
   return (
     <section
       className="py-24 md:py-32 border-y"
-      style={{ borderColor: '#24242A', background: '#0A0A0E' }}
+      style={{ borderColor: '#e2e2e0', background: '#ffffff' }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <p className="text-[10px] font-semibold tracking-[0.32em] uppercase text-muted mb-16 text-center">
           By the Numbers
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x" style={{ '--tw-divide-opacity': 1 } as React.CSSProperties}>
+        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x" style={{ '--tw-divide-opacity': 1 } as CSSProperties}>
           {STATS.map((stat, i) => (
             <div
               key={i}
               className="flex flex-col items-center text-center py-10 sm:py-0 sm:px-10 first:pt-0 last:pb-0"
-              style={{ borderColor: '#24242A' }}
+              style={{ borderColor: '#e2e2e0' }}
             >
               {/* Huge gradient number */}
               <span

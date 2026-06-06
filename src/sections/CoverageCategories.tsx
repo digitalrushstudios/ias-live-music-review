@@ -7,15 +7,17 @@ const CATEGORIES = [
     num:   '01',
     icon:  Mic2,
     label: 'Music & Video Reviews',
-    desc:  '"Like Love or Lose It" — submit your music or video and get it played live on the iAS show. Hosts Double V & Lady Buggg react in real time alongside guests and a live audience.',
+    desc:  '"Like Love or Lose It": submit your music or video and get it played live on the iAS show. Hosts Double V & Lady Buggg react in real time alongside guests and a live audience.',
     color: '#8B5CF6',
+    href:  'https://docs.google.com/forms/d/e/1FAIpQLSeiV6NbCe9DsPoL6SN2swO3NVxz5RGvmctZ6mMYAn7C7141zA/viewform',
   },
   {
     num:   '02',
     icon:  BookOpen,
     label: 'iAS Publication',
-    desc:  'Get featured in the iAS Publication — a print and digital platform that promotes and markets independent artists, bringing attention to your music, brand, and story.',
+    desc:  'Get featured in the iAS Publication, a print and digital platform that promotes and markets independent artists, bringing attention to your music, brand, and story.',
     color: '#38BDF8',
+    href:  'https://form.jotform.com/240573943157158',
   },
   {
     num:   '03',
@@ -23,13 +25,15 @@ const CATEGORIES = [
     label: 'Newsletter Advertising',
     desc:  'Reach the iAS audience directly through newsletter ad placements. Put your music, release, or brand in front of a community that actively supports independent artists.',
     color: '#8B5CF6',
+    href:  'https://mailchi.mp/8cdeb371d69c/ias-music-home-of-the-ias-live-music-review',
   },
   {
     num:   '04',
     icon:  Radio,
     label: 'Registration Services',
-    desc:  'Artist registration and onboarding support to get you set up on the iAS platform — so you can access submissions, features, and exposure opportunities the right way.',
+    desc:  'Artist registration and onboarding support to get you set up on the iAS platform so you can access submissions, features, and exposure opportunities the right way.',
     color: '#38BDF8',
+    href:  'https://docs.google.com/forms/d/e/1FAIpQLSeiV6NbCe9DsPoL6SN2swO3NVxz5RGvmctZ6mMYAn7C7141zA/viewform',
   },
 ]
 
@@ -62,7 +66,8 @@ export default function CoverageCategories() {
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
               className="relative flex flex-col gap-5 p-7 rounded-2xl border border-stroke overflow-hidden group cursor-pointer"
-              style={{ background: '#101014' }}
+              style={{ background: '#ffffff' }}
+              onClick={() => window.open(cat.href, '_blank', 'noopener,noreferrer')}
             >
               {/* Radial glow on hover */}
               <div

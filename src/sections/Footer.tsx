@@ -5,19 +5,19 @@ const FOOTER_NAV = [
   {
     heading: 'Services',
     links: [
-      { label: 'Music & Video Reviews', href: '#reviews' },
-      { label: 'iAS Publication',       href: '#reviews' },
-      { label: 'Newsletter Advertising',href: '#reviews' },
-      { label: 'Registration Services', href: '#interviews' },
-      { label: 'Artist Spotlights',     href: '#artists' },
+      { label: 'Music & Video Reviews', href: 'https://docs.google.com/forms/d/e/1FAIpQLSeiV6NbCe9DsPoL6SN2swO3NVxz5RGvmctZ6mMYAn7C7141zA/viewform' },
+      { label: 'iAS Publication',       href: 'https://form.jotform.com/240573943157158' },
+      { label: 'Newsletter Advertising',href: 'https://mailchi.mp/8cdeb371d69c/ias-music-home-of-the-ias-live-music-review' },
+      { label: 'Registration Services', href: 'https://docs.google.com/forms/d/e/1FAIpQLSeiV6NbCe9DsPoL6SN2swO3NVxz5RGvmctZ6mMYAn7C7141zA/viewform' },
+      { label: 'Nominate an Artist',    href: 'https://docs.google.com/forms/d/e/1FAIpQLSeiV6NbCe9DsPoL6SN2swO3NVxz5RGvmctZ6mMYAn7C7141zA/viewform' },
     ],
   },
   {
     heading: 'Platform',
     links: [
       { label: 'About iAS',      href: '#artists' },
-      { label: 'Submit Music',   href: '#submit' },
-      { label: 'Gallery',        href: '#events' },
+      { label: 'Watch the Show', href: 'https://www.youtube.com/@IASMusic' },
+      { label: 'iAS Newsletter', href: 'https://www.canva.com/design/DAHAXYmgz0g/AP9SkGUgXXYj8kS5fUYEIg/view?utm_content=DAHAXYmgz0g&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h985dde617b#13' },
       { label: 'iAS Podcast',    href: 'https://open.spotify.com/show/2daiojFZPhHF9dRaC1GlNt' },
       { label: 'Contact',        href: '#contact' },
     ],
@@ -33,12 +33,12 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="border-t" style={{ borderColor: '#24242A', background: '#050506' }}>
+    <footer id="contact" className="border-t" style={{ borderColor: '#1f1f1f', background: '#0a0a0a' }}>
 
       {/* Final CTA strip */}
       <div
         className="relative overflow-hidden py-24 md:py-32 px-6 text-center border-b"
-        style={{ borderColor: '#24242A' }}
+        style={{ borderColor: '#1f1f1f' }}
       >
         <div
           className="absolute inset-0 pointer-events-none"
@@ -50,7 +50,7 @@ export default function Footer() {
             iAS Live Music Review
           </p>
 
-          <h2 className="text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight mb-6 leading-[1.05]">
+          <h2 className="text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight mb-6 leading-[1.05]" style={{ color: '#ffffff' }}>
             Bring your sound
             <br />
             <span
@@ -62,12 +62,14 @@ export default function Footer() {
           </h2>
 
           <p className="text-muted text-base mb-10 leading-relaxed">
-            Submit your music or video for a live review — and let iAS help you get
+            Submit your music or video for a live review and let iAS help you get
             organized, visible, and discovered across every platform we reach.
           </p>
 
           <motion.a
-            href="#submit"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeiV6NbCe9DsPoL6SN2swO3NVxz5RGvmctZ6mMYAn7C7141zA/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
             className="inline-flex items-center gap-2.5 px-10 py-4 rounded-full font-bold text-sm text-white hover:shadow-[0_0_44px_rgba(139,92,246,0.55)] transition-shadow duration-300"
@@ -98,8 +100,8 @@ export default function Footer() {
             </div>
 
             <p className="text-sm text-muted leading-relaxed mb-6 max-w-xs">
-              The multimedia ecosystem connecting independent artists, brands, and creatives
-              with exposure, education, and opportunity. Hosted by Double V & Lady Buggg.
+              The media ecosystem connecting independent artists, brands, and creatives
+              with exposure, education, and opportunity. Hosted by Double V &amp; Lady Buggg.
             </p>
 
             <a
@@ -123,7 +125,12 @@ export default function Footer() {
               <ul className="space-y-3">
                 {col.links.map(link => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-sm text-muted hover:text-text transition-colors">
+                    <a
+                      href={link.href}
+                      target={link.href.startsWith('http') ? '_blank' : undefined}
+                      rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="text-sm text-muted hover:text-text transition-colors"
+                    >
                       {link.label}
                     </a>
                   </li>
@@ -178,7 +185,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t"
-          style={{ borderColor: '#24242A' }}
+          style={{ borderColor: '#1f1f1f' }}
         >
           <p className="text-xs text-muted">
             &copy; {new Date().getFullYear()} iAS Multi Media Group — Powered by iCREEUPREE LLC. All rights reserved.

@@ -17,7 +17,7 @@ export default function Gallery() {
   const headerRef  = useScrollReveal<HTMLDivElement>({ y: 24 })
 
   return (
-    <section id="events" className="py-24 md:py-32 overflow-hidden">
+    <section id="events" className="py-24 md:py-32 overflow-hidden" style={{ background: '#f5f5f3' }}>
       <div className="px-6 max-w-7xl mx-auto mb-12">
         <div ref={headerRef} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
@@ -46,12 +46,12 @@ export default function Gallery() {
         {/* Left fade */}
         <div
           className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(90deg, #050506, transparent)' }}
+          style={{ background: 'linear-gradient(90deg, #f5f5f3, transparent)' }}
         />
         {/* Right fade */}
         <div
           className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(270deg, #050506, transparent)' }}
+          style={{ background: 'linear-gradient(270deg, #f5f5f3, transparent)' }}
         />
 
         <motion.div
