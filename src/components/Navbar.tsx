@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ArrowUpRight } from 'lucide-react'
 
 const NAV_LINKS = [
   { label: 'Reviews',    href: '#reviews' },
@@ -13,6 +13,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled]   = useState(false)
   const [menuOpen, setMenuOpen]   = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 56)
@@ -20,96 +21,155 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Active section tracking
+  useEffect(() => {
+    const ids = NAV_LINKS.map(l => l.href.replace('#', ''))
+    const observers: IntersectionObserver[] = []
+
+    ids.forEach(id => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id) },
+        { threshold: 0.3 }
+      )
+      obs.observe(el)
+      observers.push(obs)
+    })
+    return () => observers.forEach(o => o.disconnect())
+  }, [])
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'glass border-b border-stroke' : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between gap-6">
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled ? 'glass border-b border-stroke' : 'bg-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between gap-6">
 
-        {/* Logo */}
-        {/* REPLACE: Swap the placeholder below with your actual <img src="..." /> logo */}
-        <a href="#" className="flex items-center gap-2.5 shrink-0">
-          <div
-            className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-            style={{ background: 'linear-gradient(135deg, #8B5CF6, #38BDF8)' }}
-          >
-            <span className="text-white text-[10px] font-black tracking-tight">iAS</span>
-          </div>
-          <span className="font-bold text-sm tracking-wide hidden sm:block">
-            iAS <span className="text-muted font-light">Live</span>
-          </span>
-        </a>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-7">
-          {NAV_LINKS.map(link => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm text-muted hover:text-text transition-colors duration-200 tracking-wide"
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-2.5 shrink-0 group">
+            <motion.div
+              whileHover={{ scale: 1.08 }}
+              className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+              style={{ background: 'linear-gradient(135deg, #8B5CF6, #38BDF8)' }}
             >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* CTA + Hamburger */}
-        <div className="flex items-center gap-3">
-          {/* REPLACE: Update href to your actual submission form or Typeform URL */}
-          <a
-            href="#submit"
-            className="hidden md:inline-flex items-center text-sm font-semibold px-5 py-2 rounded-full border border-stroke hover:border-[#8B5CF6] transition-all duration-300 hover:bg-white/5"
-          >
-            Submit
+              <span className="text-white text-[10px] font-black tracking-tight">iAS</span>
+            </motion.div>
+            <span className="font-bold text-sm tracking-wide hidden sm:block">
+              iAS <span className="text-muted font-light">Live</span>
+            </span>
           </a>
 
-          <button
-            className="md:hidden p-2 text-muted hover:text-text transition-colors"
-            onClick={() => setMenuOpen(v => !v)}
-            aria-label="Toggle navigation"
-          >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            key="mobile-nav"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.28, ease: 'easeInOut' }}
-            className="md:hidden overflow-hidden glass border-b border-stroke"
-          >
-            <nav className="px-6 py-5 flex flex-col gap-1">
-              {NAV_LINKS.map(link => (
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-7">
+            {NAV_LINKS.map(link => {
+              const id = link.href.replace('#', '')
+              const isActive = activeSection === id
+              return (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-sm text-muted hover:text-text py-3 border-b border-stroke/40 last:border-0 transition-colors"
+                  className="relative text-sm transition-colors duration-200 tracking-wide py-1 group"
+                  style={{ color: isActive ? '#F5F5F5' : '#9B9BA3' }}
+                >
+                  {link.label}
+                  {/* Animated underline */}
+                  <span
+                    className="absolute bottom-0 left-0 h-px transition-all duration-300 ease-out"
+                    style={{
+                      background: 'linear-gradient(90deg, #8B5CF6, #38BDF8)',
+                      width: isActive ? '100%' : '0%',
+                    }}
+                  />
+                  <span
+                    className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full transition-all duration-300 ease-out"
+                    style={{ background: 'linear-gradient(90deg, #8B5CF6, #38BDF8)', opacity: isActive ? 0 : 1 }}
+                  />
+                </a>
+              )
+            })}
+          </nav>
+
+          {/* CTA + Hamburger */}
+          <div className="flex items-center gap-3">
+            <a
+              href="#submit"
+              className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold px-5 py-2 rounded-full border border-stroke hover:border-[#8B5CF6] transition-all duration-300 hover:bg-white/5 group"
+            >
+              Submit
+              <ArrowUpRight size={13} className="opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
+            </a>
+
+            <button
+              className="md:hidden p-2 text-muted hover:text-text transition-colors"
+              onClick={() => setMenuOpen(v => !v)}
+              aria-label="Toggle navigation"
+            >
+              {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Full-screen mobile overlay */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            key="mobile-overlay"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
+            className="fixed inset-0 z-40 flex flex-col md:hidden"
+            style={{ background: '#050506' }}
+          >
+            {/* gradient accent top edge */}
+            <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, #8B5CF6, #38BDF8, transparent)' }} />
+
+            <div className="flex-1 flex flex-col justify-center px-8 gap-1">
+              {NAV_LINKS.map((link, i) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + i * 0.06, duration: 0.4, ease: 'power3.out' }}
+                  className="flex items-center justify-between py-5 border-b text-3xl font-black tracking-tight text-muted hover:text-text transition-colors group"
+                  style={{ borderColor: '#24242A' }}
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
-                </a>
+                  <ArrowUpRight size={22} className="opacity-0 group-hover:opacity-100 transition-opacity text-[#8B5CF6]" />
+                </motion.a>
               ))}
-              {/* REPLACE: Update href to your submission form URL */}
-              <a
+
+              <motion.a
                 href="#submit"
-                className="mt-3 text-sm font-bold text-center py-3.5 rounded-full text-white"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.42, duration: 0.4 }}
+                className="mt-8 text-base font-bold text-center py-4 rounded-full text-white"
                 style={{ background: 'linear-gradient(90deg, #8B5CF6, #38BDF8)' }}
                 onClick={() => setMenuOpen(false)}
               >
                 Submit Your Music
-              </a>
-            </nav>
+              </motion.a>
+            </div>
+
+            <div className="px-8 pb-10">
+              <p className="text-xs text-muted tracking-[0.2em] uppercase">iAS Live Music Review</p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   )
 }

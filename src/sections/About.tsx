@@ -27,8 +27,12 @@ export default function About() {
             </span>
 
             <blockquote
-              className="text-3xl md:text-4xl lg:text-[42px] leading-[1.18] font-light mb-8"
-              style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}
+              className="text-3xl md:text-4xl lg:text-[44px] leading-[1.16] font-light mb-8 pl-6 border-l-2"
+              style={{
+                fontFamily: "'Instrument Serif', serif",
+                fontStyle: 'italic',
+                borderColor: 'rgba(139,92,246,0.5)',
+              }}
             >
               "Live music deserves to be
               <span
