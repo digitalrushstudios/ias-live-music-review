@@ -1,86 +1,66 @@
 import { useEffect, useState, useRef } from 'react'
 import { useInView } from 'framer-motion'
-import { useScrollReveal } from '../hooks/useScrollAnimation'
 
-/*
-  REPLACE: Update these numbers as your real stats grow.
-*/
 const STATS = [
-  { end: 500,  suffix: '+', label: 'Live Shows Covered',     note: 'and counting' },
-  { end: 200,  suffix: '+', label: 'Artists Featured',        note: 'across all genres' },
-  { end: 1200, suffix: '+', label: 'Music Stories Published', note: 'reviews, features & more' },
+  { end: 500,  suffix: '+', label: 'Artists Reviewed',         sub: 'on the live iAS show' },
+  { end: 1000, suffix: '+', label: 'Submissions Received',     sub: 'music & video across all genres' },
+  { end: 8,    suffix: '+', label: 'Platforms Reached',        sub: 'TV, podcast, social & digital' },
 ]
 
-function AnimatedStat({ end, suffix }: { end: number; suffix: string }) {
+function AnimatedNumber({ end, suffix }: { end: number; suffix: string }) {
   const ref    = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
   const [n, setN] = useState(0)
 
   useEffect(() => {
     if (!inView) return
-    const duration = 2000
-    const steps = 60
-    const increment = end / steps
-    let current = 0
-
+    const duration = 1800
+    const steps    = 60
+    const inc      = end / steps
+    let cur = 0
     const timer = setInterval(() => {
-      current += increment
-      if (current >= end) {
-        setN(end)
-        clearInterval(timer)
-      } else {
-        setN(Math.floor(current))
-      }
+      cur += inc
+      if (cur >= end) { setN(end); clearInterval(timer) }
+      else setN(Math.floor(cur))
     }, duration / steps)
-
     return () => clearInterval(timer)
   }, [inView, end])
 
-  return (
-    <span ref={ref} className="tabular-nums">
-      {n.toLocaleString()}{suffix}
-    </span>
-  )
+  return <span ref={ref} className="tabular-nums">{n.toLocaleString()}{suffix}</span>
 }
 
 export default function Stats() {
-  const wrapRef = useScrollReveal<HTMLDivElement>({ y: 32, duration: 0.9 })
-
   return (
     <section
       className="py-24 md:py-32 border-y"
-      style={{ borderColor: '#24242A', background: '#101014' }}
+      style={{ borderColor: '#24242A', background: '#0A0A0E' }}
     >
-      <div className="max-w-5xl mx-auto px-6">
-        <p className="text-center text-[10px] font-semibold tracking-[0.3em] uppercase text-muted mb-14">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <p className="text-[10px] font-semibold tracking-[0.32em] uppercase text-muted mb-16 text-center">
           By the Numbers
         </p>
 
-        <div
-          ref={wrapRef}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-6 text-center"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x" style={{ '--tw-divide-opacity': 1 } as React.CSSProperties}>
           {STATS.map((stat, i) => (
-            <div key={i} className="flex flex-col items-center gap-2">
-              {i > 0 && (
-                <div
-                  className="sm:hidden w-12 h-px mb-6"
-                  style={{ background: 'linear-gradient(90deg, transparent, #24242A, transparent)' }}
-                />
-              )}
+            <div
+              key={i}
+              className="flex flex-col items-center text-center py-10 sm:py-0 sm:px-10 first:pt-0 last:pb-0"
+              style={{ borderColor: '#24242A' }}
+            >
+              {/* Huge gradient number */}
               <span
-                className="text-6xl md:text-7xl font-black tracking-tight leading-none"
+                className="text-[80px] md:text-[104px] lg:text-[120px] font-black tracking-tight leading-none mb-3"
                 style={{
-                  background: 'linear-gradient(90deg, #8B5CF6 0%, #38BDF8 100%)',
+                  background: 'linear-gradient(135deg, #8B5CF6 0%, #38BDF8 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
                 }}
               >
-                <AnimatedStat end={stat.end} suffix={stat.suffix} />
+                <AnimatedNumber end={stat.end} suffix={stat.suffix} />
               </span>
-              <span className="font-bold text-text text-base">{stat.label}</span>
-              <span className="text-xs text-muted tracking-wide">{stat.note}</span>
+              <span className="font-bold text-text text-base mb-1.5">{stat.label}</span>
+              <span className="text-xs text-muted tracking-wide">{stat.sub}</span>
             </div>
           ))}
         </div>

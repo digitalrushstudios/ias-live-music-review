@@ -7,16 +7,15 @@ interface Props {
 }
 
 const WORDS    = ['Live', 'Music', 'Review', 'Culture']
-const DURATION = 2.9   // seconds for counter + progress bar
+const DURATION = 2.7
 
 export default function LoadingScreen({ onComplete }: Props) {
-  const [count, setCount]         = useState(0)
-  const [wordIdx, setWordIdx]     = useState(0)
-  const [visible, setVisible]     = useState(true)
-  const progressRef               = useRef<HTMLDivElement>(null)
+  const [count, setCount]     = useState(0)
+  const [wordIdx, setWordIdx] = useState(0)
+  const [visible, setVisible] = useState(true)
+  const progressRef           = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // GSAP counter 0 to 100
     const obj = { n: 0 }
     gsap.to(obj, {
       n: 100,
@@ -26,31 +25,21 @@ export default function LoadingScreen({ onComplete }: Props) {
       onComplete() {
         setTimeout(() => {
           setVisible(false)
-          setTimeout(onComplete, 950)
-        }, 350)
+          setTimeout(onComplete, 1000)
+        }, 280)
       },
     })
 
-    // GSAP progress bar
     if (progressRef.current) {
       gsap.fromTo(
         progressRef.current,
         { scaleX: 0 },
-        {
-          scaleX: 1,
-          duration: DURATION,
-          ease: 'power2.inOut',
-          transformOrigin: 'left center',
-        }
+        { scaleX: 1, duration: DURATION, ease: 'power2.inOut', transformOrigin: 'left center' }
       )
     }
 
-    // Rotating words
     const wordMs = (DURATION * 1000) / WORDS.length
-    const timer  = setInterval(
-      () => setWordIdx(i => (i + 1) % WORDS.length),
-      wordMs
-    )
+    const timer  = setInterval(() => setWordIdx(i => (i + 1) % WORDS.length), wordMs)
     return () => clearInterval(timer)
   }, [onComplete])
 
@@ -62,25 +51,28 @@ export default function LoadingScreen({ onComplete }: Props) {
         <motion.div
           key="loader"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.04, filter: 'blur(6px)' }}
-          transition={{ duration: 0.85, ease: [0.76, 0, 0.24, 1] }}
+          exit={{ opacity: 0, scale: 1.05, filter: 'blur(8px)' }}
+          transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 z-[200] flex flex-col items-center justify-center overflow-hidden"
           style={{ background: '#050506' }}
         >
+          {/* Noise texture on loader too */}
+          <div className="noise-overlay" aria-hidden />
+
           {/* Ambient glow */}
           <div
             className="absolute pointer-events-none"
             style={{
-              top: '50%', left: '50%',
+              top: '40%', left: '50%',
               transform: 'translate(-50%, -60%)',
-              width: '500px', height: '300px',
-              background: 'radial-gradient(ellipse at center, rgba(139,92,246,0.18) 0%, transparent 70%)',
-              filter: 'blur(40px)',
+              width: '600px', height: '360px',
+              background: 'radial-gradient(ellipse at center, rgba(139,92,246,0.2) 0%, transparent 65%)',
+              filter: 'blur(50px)',
             }}
           />
 
           {/* Progress bar */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] overflow-hidden bg-stroke">
+          <div className="absolute top-0 left-0 right-0 h-[2px] overflow-hidden" style={{ background: '#16161C' }}>
             <div
               ref={progressRef}
               style={{
@@ -93,21 +85,21 @@ export default function LoadingScreen({ onComplete }: Props) {
           </div>
 
           {/* Center content */}
-          <div className="relative z-10 flex flex-col items-center gap-5">
+          <div className="relative z-10 flex flex-col items-center gap-4">
             <motion.span
-              initial={{ opacity: 0, letterSpacing: '0.08em' }}
-              animate={{ opacity: 1, letterSpacing: '0.35em' }}
-              transition={{ duration: 1, delay: 0.15 }}
+              initial={{ opacity: 0, letterSpacing: '0.06em' }}
+              animate={{ opacity: 1, letterSpacing: '0.38em' }}
+              transition={{ duration: 1.1, delay: 0.1 }}
               className="text-[10px] font-semibold uppercase text-muted"
             >
-              iCREEUPREE LLC
+              iAS Multi Media Group
             </motion.span>
 
-            {/* Logo wordmark */}
+            {/* iAS wordmark */}
             <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
               <span
                 className="text-[96px] md:text-[128px] font-black leading-none tracking-tight select-none"
@@ -127,10 +119,10 @@ export default function LoadingScreen({ onComplete }: Props) {
               <AnimatePresence mode="wait">
                 <motion.span
                   key={wordIdx}
-                  initial={{ y: 36, opacity: 0 }}
-                  animate={{ y: 0,  opacity: 1 }}
-                  exit={{ y: -36,   opacity: 0 }}
-                  transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
+                  initial={{ y: 38, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -38, opacity: 0 }}
+                  transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
                   className="block text-2xl md:text-3xl text-muted"
                   style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}
                 >
@@ -146,19 +138,18 @@ export default function LoadingScreen({ onComplete }: Props) {
               className="text-[80px] md:text-[108px] font-black tabular-nums leading-none"
               style={{
                 color: 'transparent',
-                WebkitTextStroke: '1px rgba(139,92,246,0.22)',
+                WebkitTextStroke: '1px rgba(139,92,246,0.2)',
               }}
             >
               {padded}
             </span>
           </div>
 
-          {/* Tagline */}
           <motion.p
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.3 }}
-            transition={{ delay: 0.9 }}
-            className="absolute bottom-7 text-[10px] tracking-[0.22em] text-muted uppercase select-none"
+            animate={{ opacity: 0.28 }}
+            transition={{ delay: 0.85 }}
+            className="absolute bottom-7 text-[10px] tracking-[0.24em] text-muted uppercase select-none"
           >
             Live Music Review
           </motion.p>
