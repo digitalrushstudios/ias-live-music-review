@@ -66,7 +66,7 @@ export default function CoverageCategories() {
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
               className="relative flex flex-col gap-5 p-7 rounded-2xl border border-stroke overflow-hidden group cursor-pointer"
-              style={{ background: '#101014' }}
+              style={{ background: '#ffffff' }}
               onClick={() => window.open(cat.href, '_blank', 'noopener,noreferrer')}
             >
               {/* Radial glow on hover */}

@@ -9,7 +9,7 @@ export default function ArtistOfTheQuarter() {
     <section
       id="artist-quarter"
       className="py-24 md:py-32 px-6 border-y"
-      style={{ borderColor: '#24242A', background: '#0D0D11' }}
+      style={{ borderColor: '#e2e2e0', background: '#f5f5f3' }}
     >
       <div className="max-w-7xl mx-auto">
 
@@ -87,7 +87,7 @@ export default function ArtistOfTheQuarter() {
               className="absolute -top-4 -right-4 w-20 h-20 rounded-full flex flex-col items-center justify-center border-2 text-center"
               style={{
                 background: 'linear-gradient(135deg, #8B5CF6, #38BDF8)',
-                borderColor: '#0D0D11',
+                borderColor: '#f5f5f3',
               }}
             >
               <span className="text-white text-[9px] font-bold tracking-wide uppercase leading-tight">Artist</span>
@@ -109,7 +109,7 @@ export default function ArtistOfTheQuarter() {
             <h3
               className="text-5xl md:text-6xl font-black tracking-tight mb-3"
               style={{
-                background: 'linear-gradient(135deg, #ffffff 0%, #9B9BA3 100%)',
+                background: 'linear-gradient(135deg, #0a0a0a 0%, #6b6b6b 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -153,7 +153,7 @@ export default function ArtistOfTheQuarter() {
                 whileHover={{ scale: 1.04, borderColor: '#8B5CF6' }}
                 whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm border transition-all duration-300 hover:bg-white/5"
-                style={{ borderColor: '#24242A', color: '#F5F5F5' }}
+                style={{ borderColor: '#e2e2e0', color: '#0a0a0a' }}
               >
                 <Award size={14} />
                 Vote for Ceasar
@@ -163,7 +163,7 @@ export default function ArtistOfTheQuarter() {
 
             <div
               className="mt-10 p-5 rounded-xl border"
-              style={{ borderColor: '#24242A', background: 'rgba(255,255,255,0.02)' }}
+              style={{ borderColor: '#e2e2e0', background: 'rgba(0,0,0,0.03)' }}
             >
               <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-muted mb-2">Want to be featured?</p>
               <p className="text-sm text-muted leading-relaxed">

@@ -33,12 +33,12 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="border-t" style={{ borderColor: '#24242A', background: '#050506' }}>
+    <footer id="contact" className="border-t" style={{ borderColor: '#1f1f1f', background: '#0a0a0a' }}>
 
       {/* Final CTA strip */}
       <div
         className="relative overflow-hidden py-24 md:py-32 px-6 text-center border-b"
-        style={{ borderColor: '#24242A' }}
+        style={{ borderColor: '#1f1f1f' }}
       >
         <div
           className="absolute inset-0 pointer-events-none"
@@ -185,7 +185,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t"
-          style={{ borderColor: '#24242A' }}
+          style={{ borderColor: '#1f1f1f' }}
         >
           <p className="text-xs text-muted">
             &copy; {new Date().getFullYear()} iAS Multi Media Group — Powered by iCREEUPREE LLC. All rights reserved.

@@ -17,13 +17,13 @@ export default function ArtistSubmissionCTA() {
     <section
       id="submit"
       className="py-24 md:py-32 px-6"
-      style={{ background: '#0A0A0E' }}
+      style={{ background: '#ffffff' }}
     >
       <div className="max-w-5xl mx-auto">
         <div
           ref={cardRef}
           className="relative overflow-hidden rounded-3xl border border-stroke p-10 md:p-16 text-center"
-          style={{ background: '#050506' }}
+          style={{ background: '#f5f5f3' }}
         >
           {/* Gradient glow */}
           <div
@@ -85,7 +85,7 @@ export default function ArtistSubmissionCTA() {
                   <li
                     key={tag.label}
                     className="inline-flex items-center gap-1.5 text-xs font-medium px-4 py-2 rounded-full border transition-all duration-200 hover:border-[#8B5CF6] hover:text-text hover:bg-white/5"
-                    style={{ borderColor: '#24242A', color: '#9B9BA3', background: 'rgba(255,255,255,0.025)' }}
+                    style={{ borderColor: '#e2e2e0', color: '#6b6b6b', background: 'transparent' }}
                   >
                     <Icon size={10} />
                     {tag.label}
