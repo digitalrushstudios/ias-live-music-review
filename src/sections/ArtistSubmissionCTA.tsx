@@ -69,7 +69,7 @@ export default function ArtistSubmissionCTA() {
             </h2>
 
             <p className="text-muted text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-3">
-              Submit your music or video for a live review on the iAS show — where Double V & Lady Buggg
+              Submit your music or video for a live review on the iAS show, where Double V &amp; Lady Buggg
               and a real audience give you honest feedback with the "Like Love or Lose It" format.
             </p>
             <p className="text-muted text-sm max-w-lg mx-auto leading-relaxed mb-10">
@@ -95,9 +95,10 @@ export default function ArtistSubmissionCTA() {
             </ul>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              {/* REPLACE href with your real submission form URL */}
               <motion.a
-                href="mailto:iaslivemusicreview@gmail.com"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeiV6NbCe9DsPoL6SN2swO3NVxz5RGvmctZ6mMYAn7C7141zA/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.96 }}
                 className="inline-flex items-center gap-2.5 px-9 py-4 rounded-full font-bold text-sm text-white transition-shadow duration-300 hover:shadow-[0_0_48px_rgba(139,92,246,0.55)]"

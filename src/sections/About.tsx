@@ -3,19 +3,19 @@ import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollAnimation'
 const PILLARS = [
   {
     label: 'Honest Feedback',
-    desc: '"Like Love or Lose It" — real-time reactions from live audiences and guests who tell artists the unfiltered truth about their music.',
+    desc: '"Like Love or Lose It": real-time reactions from live audiences and guests who tell artists the unfiltered truth about their music.',
   },
   {
     label: 'Artist-First Platform',
-    desc: 'From music reviews and publication features to registration services and newsletter advertising — every offering is built around the independent artist.',
+    desc: 'From music reviews and publication features to registration services and newsletter advertising, every offering is built around the independent artist.',
   },
   {
     label: 'Community & Culture',
     desc: 'Born in the Bronx, built for creatives everywhere. iAS connects artists with fans, industry insiders, and opportunities across media, TV, and digital.',
   },
   {
-    label: 'Multimedia Ecosystem',
-    desc: 'iAS is growing into a full ecosystem — media, publishing, live experiences, education, and strategic exposure — designed to help artists get organized, visible, and discovered.',
+    label: 'Media Ecosystem',
+    desc: 'iAS is growing into a full ecosystem: media, publishing, live experiences, education, and strategic exposure designed to help artists get organized, visible, and discovered.',
   },
 ]
 
@@ -66,22 +66,22 @@ export default function About() {
             />
 
             <p className="text-muted text-base leading-relaxed mb-5">
-              <strong className="text-text font-semibold">iAS Multi Media Group</strong> is a multimedia
+              <strong className="text-text font-semibold">iAS Multi Media Group</strong> is a media
               ecosystem connecting independent artists, brands, and creatives with exposure, education,
-              and opportunity. Hosted by <strong className="text-text font-semibold">Double V & Lady Buggg</strong>,
-              the iAS Live Music Review show gives indie artists a real stage — played live, reacted to in real
-              time, with honest feedback from guests, industry insiders, and a global audience.
+              and opportunity. Hosted by <strong className="text-text font-semibold">Double V &amp; Lady Buggg</strong>,
+              the iAS Live Music Review show gives indie artists a real stage, played live and reacted to in real
+              time with honest feedback from guests, industry insiders, and a global audience.
             </p>
 
             <p className="text-muted text-base leading-relaxed mb-5">
               Founded by <strong className="text-text font-semibold">Joli Harris</strong> and operating
-              under <strong className="text-text font-semibold">iCREEUPREE LLC</strong> out of the Bronx, NY —
-              iAS has aired on Verizon & Optimum TV, built a podcast audience on Apple Podcasts and Spotify,
+              under <strong className="text-text font-semibold">iCREEUPREE LLC</strong> out of the Bronx, NY.
+              iAS has aired on Verizon &amp; Optimum TV, built a podcast audience on Apple Podcasts and Spotify,
               and published artists across its print and digital platforms.
             </p>
 
             <p className="text-muted text-base leading-relaxed">
-              Over the next 3–5 years, iAS aims to become a full multimedia ecosystem: media, publishing,
+              Over the next 3 to 5 years, iAS aims to become a full media ecosystem: publishing,
               live experiences, education, and strategic exposure for independent creators at every level.
             </p>
           </div>
@@ -118,7 +118,7 @@ export default function About() {
                 style={{ background: 'linear-gradient(90deg, #8B5CF6, #38BDF8)' }}
               />
               <span className="text-muted text-xs tracking-wide">
-                Accepting artist submissions — <span className="text-text font-semibold">open now</span>
+                Accepting artist submissions: <span className="text-text font-semibold">open now</span>
               </span>
             </div>
           </div>
