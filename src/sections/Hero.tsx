@@ -1,6 +1,9 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const TICKER = [
   'Independent Artist Spotlight', '✦', 'Like Love or Lose It', '✦',
@@ -16,6 +19,7 @@ export default function Hero() {
   const eyebrowRef   = useRef<HTMLDivElement>(null)
   const ctaRef       = useRef<HTMLDivElement>(null)
   const scrollIndRef = useRef<HTMLDivElement>(null)
+  const concertImgRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     // Word-by-word reveal for headline
@@ -48,6 +52,24 @@ export default function Hero() {
     }
   }, [])
 
+  // Scroll-fade the concert photo out as user scrolls down
+  useEffect(() => {
+    if (!concertImgRef.current || !heroRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.to(concertImgRef.current, {
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      })
+    })
+    return () => ctx.revert()
+  }, [])
+
   // Mouse parallax on background orbs
   useEffect(() => {
     const handleMouse = (e: MouseEvent) => {
@@ -70,6 +92,16 @@ export default function Hero() {
       {/* Background */}
       <div className="absolute inset-0" aria-hidden>
         <div className="absolute inset-0" style={{ background: '#ffffff' }} />
+
+        {/* Concert photo — fades out on scroll */}
+        <div ref={concertImgRef} className="absolute inset-0">
+          <img
+            src="/ias-live-music-review/assets/concert-hero.jpg"
+            alt=""
+            className="w-full h-full object-cover object-center"
+            style={{ opacity: 0.13, mixBlendMode: 'multiply' }}
+          />
+        </div>
 
         <div
           ref={orb1Ref}
