@@ -51,7 +51,7 @@ export default function ArtistOfTheQuarter() {
               style={{ aspectRatio: '4/5', maxHeight: '560px' }}
             >
               <img
-                src="/ias-live-music-review/assets/ceasar-rio1.png"
+                src="/ias-live-music-review/assets/ceasar-rio1.jpg"
                 alt="CEASAR RIO"
                 className="w-full h-full object-cover object-top"
                 onError={(e) => {
