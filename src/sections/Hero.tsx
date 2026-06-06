@@ -96,7 +96,7 @@ export default function Hero() {
         {/* Concert photo — fades out on scroll */}
         <div ref={concertImgRef} className="absolute inset-0">
           <img
-            src="/ias-live-music-review/assets/concert-hero.jpg"
+            src="/ias-live-music-review/assets/concert-hero.png"
             alt=""
             className="w-full h-full object-cover object-center"
             style={{ opacity: 0.13, mixBlendMode: 'multiply' }}
