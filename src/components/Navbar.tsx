@@ -78,7 +78,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   className="relative text-sm transition-colors duration-200 tracking-wide py-1 group"
-                  style={{ color: isActive ? '#F5F5F5' : '#9B9BA3' }}
+                  style={{ color: isActive ? '#0a0a0a' : '#6b6b6b' }}
                 >
                   {link.label}
                   {/* Animated underline */}
@@ -129,9 +129,8 @@ export default function Navbar() {
             exit={{ x: '100%' }}
             transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
             className="fixed inset-0 z-40 flex flex-col md:hidden"
-            style={{ background: '#050506' }}
+            style={{ background: '#ffffff' }}
           >
-            {/* gradient accent top edge */}
             <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, #8B5CF6, #38BDF8, transparent)' }} />
 
             <div className="flex-1 flex flex-col justify-center px-8 gap-1">
@@ -143,7 +142,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 + i * 0.06, duration: 0.4, ease: 'power3.out' }}
                   className="flex items-center justify-between py-5 border-b text-3xl font-black tracking-tight text-muted hover:text-text transition-colors group"
-                  style={{ borderColor: '#24242A' }}
+                  style={{ borderColor: '#e2e2e0' }}
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}

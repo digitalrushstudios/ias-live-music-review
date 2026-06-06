@@ -8,9 +8,10 @@ const REVIEWS = [
     num: '01',
     category: 'Music Review',
     categoryColor: '#8B5CF6',
+    href: 'https://docs.google.com/forms/d/e/1FAIpQLSeiV6NbCe9DsPoL6SN2swO3NVxz5RGvmctZ6mMYAn7C7141zA/viewform',
     title: 'Like Love or Lose It: How iAS Gives Artists the Honest Truth',
     excerpt:
-      'Double V & Lady Buggg play your submission live — and a real audience tells you exactly what they think. No filters. Just real feedback that helps you grow.',
+      'Double V & Lady Buggg play your submission live and a real audience tells you exactly what they think. No filters. Just real feedback that helps you grow.',
     date: 'iAS Live Show',
     readTime: 'Live Format',
     gradient: 'linear-gradient(145deg, #120720 0%, #0D1535 60%, #091525 100%)',
@@ -21,9 +22,10 @@ const REVIEWS = [
     num: '02',
     category: 'iAS Publication',
     categoryColor: '#38BDF8',
-    title: 'Get Featured in Print & Digital — The iAS Publication',
+    href: 'https://form.jotform.com/240573943157158',
+    title: 'Get Featured in Print and Digital: The iAS Publication',
     excerpt:
-      'Your music, your brand, your story — promoted and marketed across the iAS print and digital publication to an audience that supports independent artists.',
+      'Your music, your brand, your story: promoted and marketed across the iAS print and digital publication to an audience that supports independent artists.',
     date: 'iAS Media',
     readTime: 'Feature Placement',
     gradient: 'linear-gradient(145deg, #091525 0%, #120720 60%, #0D1535 100%)',
@@ -34,6 +36,7 @@ const REVIEWS = [
     num: '03',
     category: 'Artist Spotlight',
     categoryColor: '#8B5CF6',
+    href: 'https://docs.google.com/forms/d/e/1FAIpQLSeiV6NbCe9DsPoL6SN2swO3NVxz5RGvmctZ6mMYAn7C7141zA/viewform',
     title: 'From the Bronx to the World: Artists Who Got Discovered Through iAS',
     excerpt:
       'Real stories of independent artists who submitted, got honest feedback, and used the iAS platform to level up their visibility and reach.',
@@ -47,9 +50,10 @@ const REVIEWS = [
     num: '04',
     category: 'Newsletter',
     categoryColor: '#38BDF8',
+    href: 'https://mailchi.mp/8cdeb371d69c/ias-music-home-of-the-ias-live-music-review',
     title: 'Reach the iAS Community with Newsletter Advertising',
     excerpt:
-      'Place your music, release, or brand directly in front of the iAS audience — creatives and fans who actively support independent artists.',
+      'Place your music, release, or brand directly in front of the iAS audience: creatives and fans who actively support independent artists.',
     date: 'iAS Advertising',
     readTime: 'Ad Placement',
     gradient: 'linear-gradient(145deg, #160A20 0%, #0A1530 60%, #050A18 100%)',
@@ -75,6 +79,7 @@ function ReviewCard({ card, large = false }: CardProps) {
       onHoverEnd={() => setHovered(false)}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.32, ease: 'easeOut' }}
+      onClick={() => window.open(card.href, '_blank', 'noopener,noreferrer')}
     >
       {/* Background gradient (replace with <img> when real photos available) */}
       <div

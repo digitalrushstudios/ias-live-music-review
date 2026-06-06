@@ -1,6 +1,9 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const TICKER = [
   'Independent Artist Spotlight', '✦', 'Like Love or Lose It', '✦',
@@ -16,6 +19,7 @@ export default function Hero() {
   const eyebrowRef   = useRef<HTMLDivElement>(null)
   const ctaRef       = useRef<HTMLDivElement>(null)
   const scrollIndRef = useRef<HTMLDivElement>(null)
+  const concertImgRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     // Word-by-word reveal for headline
@@ -48,6 +52,24 @@ export default function Hero() {
     }
   }, [])
 
+  // Scroll-fade the concert photo out as user scrolls down
+  useEffect(() => {
+    if (!concertImgRef.current || !heroRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.to(concertImgRef.current, {
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      })
+    })
+    return () => ctx.revert()
+  }, [])
+
   // Mouse parallax on background orbs
   useEffect(() => {
     const handleMouse = (e: MouseEvent) => {
@@ -69,7 +91,17 @@ export default function Hero() {
 
       {/* Background */}
       <div className="absolute inset-0" aria-hidden>
-        <div className="absolute inset-0" style={{ background: '#03030A' }} />
+        <div className="absolute inset-0" style={{ background: '#ffffff' }} />
+
+        {/* Concert photo — fades out on scroll */}
+        <div ref={concertImgRef} className="absolute inset-0">
+          <img
+            src="/ias-live-music-review/assets/concert-hero.png"
+            alt=""
+            className="w-full h-full object-cover object-center"
+            style={{ opacity: 0.13, mixBlendMode: 'multiply' }}
+          />
+        </div>
 
         <div
           ref={orb1Ref}
@@ -105,11 +137,11 @@ export default function Hero() {
         />
         <div
           className="absolute inset-0"
-          style={{ background: 'radial-gradient(ellipse at center, transparent 30%, rgba(3,3,10,0.9) 100%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, transparent 30%, rgba(255,255,255,0.6) 100%)' }}
         />
         <div
           className="absolute bottom-0 left-0 right-0 h-40"
-          style={{ background: 'linear-gradient(0deg, #050506 0%, transparent 100%)' }}
+          style={{ background: 'linear-gradient(0deg, #ffffff 0%, transparent 100%)' }}
         />
       </div>
 
@@ -180,7 +212,7 @@ export default function Hero() {
               whileHover={{ scale: 1.04, borderColor: '#8B5CF6' }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-2 px-9 py-4 rounded-full font-bold text-sm border transition-all duration-300 hover:bg-white/5"
-              style={{ borderColor: '#24242A', color: '#F5F5F5' }}
+              style={{ borderColor: '#e2e2e0', color: '#0a0a0a' }}
             >
               Submit Your Music
             </motion.a>
@@ -189,11 +221,11 @@ export default function Hero() {
       </div>
 
       {/* Ticker Marquee with gradient fade edges */}
-      <div className="relative z-10 border-y overflow-hidden py-3" style={{ borderColor: 'rgba(36,36,42,0.6)' }}>
+      <div className="relative z-10 border-y overflow-hidden py-3" style={{ borderColor: '#e2e2e0' }}>
         {/* Fade left */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: 'linear-gradient(90deg, #03030A, transparent)' }} />
+        <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: 'linear-gradient(90deg, #ffffff, transparent)' }} />
         {/* Fade right */}
-        <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: 'linear-gradient(270deg, #03030A, transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: 'linear-gradient(270deg, #ffffff, transparent)' }} />
 
         <div className="flex whitespace-nowrap select-none">
           <ul className="animate-marquee flex items-center gap-10 pr-10 list-none">
@@ -229,7 +261,7 @@ export default function Hero() {
         aria-hidden
       >
         <span className="text-[9px] tracking-[0.3em] uppercase text-muted">Scroll</span>
-        <div className="w-px h-10 relative overflow-hidden rounded-full" style={{ background: '#24242A' }}>
+        <div className="w-px h-10 relative overflow-hidden rounded-full" style={{ background: '#e2e2e0' }}>
           <div
             className="scroll-dot absolute top-0 left-0 right-0 h-4 rounded-full"
             style={{ background: 'linear-gradient(180deg, #8B5CF6, #38BDF8)' }}
