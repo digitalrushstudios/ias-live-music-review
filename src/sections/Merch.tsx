@@ -121,13 +121,11 @@ export default function Merch() {
   return (
     <section ref={sectionRef} id="merch" className="overflow-hidden" style={{ background: '#0a0a0a' }}>
 
-      {/* ── Video Hero ──────────────────────────────────────────────── */}
-      {/* On mobile: portrait crop (9/14) so subjects' faces are visible above the text.
-          On md+: classic 16/9 widescreen. */}
+      {/* ── 16:9 Video Hero ─────────────────────────────────────────── */}
       <div
         ref={videoRef}
         className="relative w-full"
-        style={{ aspectRatio: '9 / 14', maxHeight: '100svh' }}
+        style={{ aspectRatio: '16 / 9', maxHeight: '90vh' }}
       >
         <video
           ref={videoElRef}
@@ -137,16 +135,13 @@ export default function Merch() {
           loop
           playsInline
           className="w-full h-full object-cover"
-          style={{ objectPosition: '50% 15%' }}
+          style={{ objectPosition: '50% 20%' }}
         />
 
-        {/* Override to 16/9 on md+ via inline responsive style */}
-        <style>{`@media(min-width:768px){#merch-hero{aspect-ratio:16/9!important;max-height:90vh!important;}}`}</style>
-
-        {/* Gradient: lighter in middle so faces stay visible, heavy at very bottom for text legibility */}
+        {/* Gradient: clear in upper half so subjects' faces show, heavy at bottom for text */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.0) 25%, rgba(10,10,10,0.0) 50%, rgba(10,10,10,0.88) 100%)' }}
+          style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.0) 30%, rgba(10,10,10,0.0) 50%, rgba(10,10,10,0.92) 100%)' }}
         />
 
         <div

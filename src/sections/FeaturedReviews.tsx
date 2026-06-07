@@ -213,7 +213,7 @@ export default function FeaturedReviews() {
         <div className="md:col-span-2">
           <ReviewCard card={REVIEWS[0]} large />
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-1 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 gap-3 md:gap-4">
           {REVIEWS.slice(1).map(card => (
             <ReviewCard key={card.title} card={card} />
           ))}
