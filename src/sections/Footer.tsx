@@ -50,7 +50,7 @@ export default function Footer() {
             src="/ias-live-music-review/assets/ias-logo-tagline-white.png"
             alt="iAS"
             className="mx-auto mb-8"
-            style={{ height: '44px', width: 'auto', userSelect: 'none' }}
+            style={{ height: '132px', width: 'auto', userSelect: 'none' }}
           />
 
           <h2 className="text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight mb-6 leading-[1.05]" style={{ color: '#ffffff' }}>
