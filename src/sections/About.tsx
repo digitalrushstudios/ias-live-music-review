@@ -86,11 +86,11 @@ export default function About() {
             </p>
 
             {/* Host photo */}
-            <div className="relative rounded-2xl overflow-hidden border border-stroke" style={{ aspectRatio: '4/3' }}>
+            <div className="relative rounded-2xl overflow-hidden border border-stroke" style={{ aspectRatio: '1/1' }}>
               <img
-                src="/ias-live-music-review/assets/mockup-1.png"
+                src="/ias-live-music-review/assets/ias-vv-mockup-sq.png"
                 alt="Double V — iAS Live Music Review Host"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
               />
               <div
                 className="absolute inset-0"
