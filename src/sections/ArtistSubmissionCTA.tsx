@@ -22,7 +22,7 @@ export default function ArtistSubmissionCTA() {
       <div className="max-w-5xl mx-auto">
         <div
           ref={cardRef}
-          className="relative overflow-hidden rounded-3xl border border-stroke p-10 md:p-16 text-center"
+          className="relative overflow-hidden rounded-3xl border border-stroke p-7 sm:p-10 md:p-16 text-center"
           style={{ background: '#f5f5f3' }}
         >
           {/* Gradient glow */}
@@ -57,7 +57,7 @@ export default function ArtistSubmissionCTA() {
               Now Accepting Submissions
             </span>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-[1.06]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-5 md:mb-6 leading-[1.06]">
               Ready to get visible
               <br />
               <span

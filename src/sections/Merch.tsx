@@ -121,8 +121,14 @@ export default function Merch() {
   return (
     <section ref={sectionRef} id="merch" className="overflow-hidden" style={{ background: '#0a0a0a' }}>
 
-      {/* ── 16:9 Video Hero ─────────────────────────────────────────── */}
-      <div ref={videoRef} className="relative w-full" style={{ aspectRatio: '16/9', maxHeight: '90vh' }}>
+      {/* ── Video Hero ──────────────────────────────────────────────── */}
+      {/* On mobile: portrait crop (9/14) so subjects' faces are visible above the text.
+          On md+: classic 16/9 widescreen. */}
+      <div
+        ref={videoRef}
+        className="relative w-full"
+        style={{ aspectRatio: '9 / 14', maxHeight: '100svh' }}
+      >
         <video
           ref={videoElRef}
           src="/ias-live-music-review/assets/shirt-mockup-video-1.mp4"
@@ -131,34 +137,37 @@ export default function Merch() {
           loop
           playsInline
           className="w-full h-full object-cover"
+          style={{ objectPosition: '50% 15%' }}
         />
 
-        {/* Dark gradient overlay — top & bottom */}
+        {/* Override to 16/9 on md+ via inline responsive style */}
+        <style>{`@media(min-width:768px){#merch-hero{aspect-ratio:16/9!important;max-height:90vh!important;}}`}</style>
+
+        {/* Gradient: lighter in middle so faces stay visible, heavy at very bottom for text legibility */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.1) 35%, rgba(10,10,10,0.1) 65%, rgba(10,10,10,0.85) 100%)' }}
+          style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.0) 25%, rgba(10,10,10,0.0) 50%, rgba(10,10,10,0.88) 100%)' }}
         />
 
-        {/* Accent glow */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(139,92,246,0.12) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(139,92,246,0.10) 0%, transparent 70%)' }}
         />
 
         {/* Top label */}
-        <div className="absolute top-8 left-8">
+        <div className="absolute top-6 left-6 md:top-8 md:left-8">
           <span className="text-[10px] font-bold tracking-[0.28em] uppercase" style={{ color: 'rgba(255,255,255,0.5)' }}>
             iAS Multi Media Group
           </span>
         </div>
 
-        {/* Bottom copy */}
-        <div ref={headlineRef} className="absolute bottom-0 left-0 right-0 p-8 md:p-14">
-          <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-4" style={{ color: '#8B5CF6' }}>
+        {/* Bottom copy — pushed down by the gradient so text never covers faces */}
+        <div ref={headlineRef} className="absolute bottom-0 left-0 right-0 p-6 md:p-14">
+          <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-3 md:mb-4" style={{ color: '#8B5CF6' }}>
             The Collection
           </p>
-          <h2 className="overflow-hidden mb-2">
-            <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[84px] font-black leading-[1.0] tracking-tight text-white">
+          <h2 className="overflow-hidden mb-1 md:mb-2">
+            <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-[84px] font-black leading-[1.0] tracking-tight text-white">
               {['Wear', 'the'].map((w, i) => (
                 <span key={i} className="inline-block overflow-hidden mr-[0.2em]">
                   <span className="merch-word block">{w}</span>
@@ -166,9 +175,9 @@ export default function Merch() {
               ))}
             </span>
           </h2>
-          <h2 className="overflow-hidden mb-8">
+          <h2 className="overflow-hidden mb-6 md:mb-8">
             <span
-              className="block text-5xl sm:text-6xl md:text-7xl lg:text-[84px] font-black leading-[1.0] tracking-tight"
+              className="block text-4xl sm:text-5xl md:text-7xl lg:text-[84px] font-black leading-[1.0] tracking-tight"
               style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}
             >
               {['Movement.'].map((w, i) => (
@@ -195,7 +204,7 @@ export default function Merch() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
-            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-bold text-sm text-white hover:shadow-[0_0_44px_rgba(139,92,246,0.55)] transition-shadow duration-300"
+            className="inline-flex items-center gap-2.5 px-7 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-sm text-white hover:shadow-[0_0_44px_rgba(139,92,246,0.55)] transition-shadow duration-300"
             style={{ background: 'linear-gradient(90deg, #8B5CF6, #38BDF8)' }}
           >
             <ShoppingBag size={14} />
@@ -228,8 +237,13 @@ export default function Merch() {
       </div>
 
       {/* ── Lifestyle Editorial Photo ───────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-16">
-        <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '21/9' }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-10 md:pt-16">
+        {/* Mobile: 4/3 so the couch subject is visible; desktop: 21/9 cinematic */}
+        <div
+          className="relative rounded-2xl overflow-hidden"
+          style={{ aspectRatio: '4/3' }}
+        >
+          <style>{`@media(min-width:768px){#merch-lifestyle{aspect-ratio:21/9!important;}}`}</style>
           <img
             src="/ias-live-music-review/assets/ias-couch-mockup.png"
             alt="iAS Merch lifestyle — hoodie in the studio"
@@ -237,13 +251,14 @@ export default function Merch() {
           />
           <div
             className="absolute inset-0"
-            style={{ background: 'linear-gradient(90deg, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.15) 50%, transparent 100%)' }}
+            style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0.0) 0%, rgba(10,10,10,0.65) 100%)' }}
           />
-          <div className="absolute left-0 top-0 bottom-0 flex flex-col justify-center p-8 md:p-12">
-            <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-3" style={{ color: '#8B5CF6' }}>
+          {/* On md+ switch to left-side overlay; on mobile, bottom overlay */}
+          <div className="absolute left-0 bottom-0 right-0 md:top-0 flex flex-col justify-end md:justify-center p-6 md:p-12">
+            <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-2 md:mb-3" style={{ color: '#8B5CF6' }}>
               iAS Lifestyle
             </p>
-            <p className="text-white font-black text-2xl md:text-3xl tracking-tight leading-tight max-w-xs">
+            <p className="text-white font-black text-xl md:text-3xl tracking-tight leading-tight max-w-xs">
               Wear it in<br />
               <span className="accent-gradient-text" style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}>
                 the studio.
@@ -254,8 +269,8 @@ export default function Merch() {
       </div>
 
       {/* ── Product Grid ────────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-14 md:py-28">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 md:gap-6 mb-10 md:mb-16">
           <div>
             <span className="block text-[10px] font-semibold tracking-[0.28em] uppercase mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
               iAS Merch
@@ -275,7 +290,7 @@ export default function Merch() {
           </p>
         </div>
 
-        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div ref={cardsRef} className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {PRODUCTS.map((p) => (
             <motion.div
               key={p.name}
@@ -335,7 +350,7 @@ export default function Merch() {
 
         {/* CTA strip */}
         <div
-          className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 p-8 rounded-2xl border"
+          className="mt-10 md:mt-14 flex flex-col sm:flex-row items-center justify-between gap-5 p-6 md:p-8 rounded-2xl border"
           style={{ borderColor: 'rgba(139,92,246,0.25)', background: 'rgba(139,92,246,0.07)' }}
         >
           <div>

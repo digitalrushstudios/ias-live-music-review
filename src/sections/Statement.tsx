@@ -163,7 +163,7 @@ export default function Statement() {
                 {msg.lines.map((line, li) => (
                   <div key={li} className="overflow-visible">
                     <span
-                      className={`stmt-word block text-[44px] sm:text-[64px] md:text-[84px] lg:text-[104px] font-black leading-[1.0] tracking-tight ${
+                      className={`stmt-word block text-[32px] sm:text-[48px] md:text-[80px] lg:text-[104px] font-black leading-[1.05] tracking-tight ${
                         li === msg.lines.length - 1 && msg.accent ? 'accent-gradient-text' : ''
                       }`}
                       style={
@@ -184,7 +184,7 @@ export default function Statement() {
 
               {/* Subtitle */}
               <p
-                className="stmt-sub text-sm md:text-base max-w-md leading-relaxed"
+                className="stmt-sub text-xs sm:text-sm md:text-base max-w-sm md:max-w-md leading-relaxed px-4 md:px-0"
                 style={{ color: 'rgba(255,255,255,0.38)' }}
               >
                 {msg.sub}

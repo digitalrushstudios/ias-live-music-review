@@ -37,7 +37,7 @@ export default function Footer() {
 
       {/* Final CTA strip */}
       <div
-        className="relative overflow-hidden py-24 md:py-32 px-6 text-center border-b"
+        className="relative overflow-hidden py-16 md:py-32 px-4 sm:px-6 text-center border-b"
         style={{ borderColor: '#1f1f1f' }}
       >
         <div
@@ -50,10 +50,10 @@ export default function Footer() {
             src="/ias-live-music-review/assets/ias-logo-tagline-white.png"
             alt="iAS"
             className="mx-auto mb-8"
-            style={{ height: '132px', width: 'auto', userSelect: 'none' }}
+            style={{ height: 'clamp(80px, 22vw, 132px)', width: 'auto', userSelect: 'none' }}
           />
 
-          <h2 className="text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight mb-6 leading-[1.05]" style={{ color: '#ffffff' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight mb-5 md:mb-6 leading-[1.05]" style={{ color: '#ffffff' }}>
             Bring your sound
             <br />
             <span
@@ -85,11 +85,11 @@ export default function Footer() {
       </div>
 
       {/* Footer body */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-12 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
 
           {/* Brand column */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="sm:col-span-2 md:col-span-1">
             <div className="mb-6">
               <img
                 src="/ias-live-music-review/assets/ias-logo-tagline-white.png"

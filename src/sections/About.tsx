@@ -29,8 +29,8 @@ export default function About() {
       className="py-24 md:py-32 border-y"
       style={{ borderColor: '#e2e2e0', background: '#f5f5f3' }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-start">
 
           {/* Left: editorial statement */}
           <div ref={headRef}>
@@ -39,7 +39,7 @@ export default function About() {
             </span>
 
             <blockquote
-              className="text-3xl md:text-4xl lg:text-[44px] leading-[1.16] font-light mb-8 pl-6 border-l-2"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] leading-[1.16] font-light mb-6 md:mb-8 pl-5 md:pl-6 border-l-2"
               style={{
                 fontFamily: "'Instrument Serif', serif",
                 fontStyle: 'italic',
@@ -86,7 +86,7 @@ export default function About() {
             </p>
 
             {/* Photos — Double V + studio shot side by side */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
               {/* Double V portrait */}
               <div className="relative rounded-2xl overflow-hidden border border-stroke" style={{ aspectRatio: '1/1' }}>
                 <img

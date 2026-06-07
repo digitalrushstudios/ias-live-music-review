@@ -18,7 +18,7 @@ export default function ArtistOfTheQuarter() {
             <span className="block text-[10px] font-semibold tracking-[0.28em] uppercase text-muted mb-3">
               Community Vote
             </span>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight flex items-center gap-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight flex flex-wrap items-center gap-2 sm:gap-3">
               Artist of the{' '}
               <span
                 style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}
@@ -42,7 +42,7 @@ export default function ArtistOfTheQuarter() {
           </motion.a>
         </div>
 
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
 
           {/* Photo */}
           <div className="relative">
@@ -107,7 +107,7 @@ export default function ArtistOfTheQuarter() {
             </div>
 
             <h3
-              className="text-5xl md:text-6xl font-black tracking-tight mb-3"
+              className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-3"
               style={{
                 background: 'linear-gradient(135deg, #0a0a0a 0%, #6b6b6b 100%)',
                 WebkitBackgroundClip: 'text',

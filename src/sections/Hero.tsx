@@ -130,20 +130,20 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 pt-28 pb-8 text-center max-w-5xl mx-auto w-full">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 sm:px-6 pt-24 md:pt-28 pb-8 text-center max-w-5xl mx-auto w-full">
 
         {/* Logo with tagline — prominent center */}
-        <div ref={logoRef} style={{ opacity: 0 }} className="mb-12">
+        <div ref={logoRef} style={{ opacity: 0 }} className="mb-8 md:mb-12">
           <img
             src="/ias-live-music-review/assets/ias-logo-tagline-white.png"
             alt="iAS — Independent Artist Spotlight"
             className="w-auto mx-auto"
-            style={{ height: '288px', userSelect: 'none' }}
+            style={{ height: 'clamp(160px, 38vw, 288px)', userSelect: 'none' }}
           />
         </div>
 
         {/* Headline */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[84px] font-black leading-[1.04] tracking-tight mb-6 text-white">
+        <h1 className="text-[40px] sm:text-5xl md:text-7xl lg:text-[84px] font-black leading-[1.04] tracking-tight mb-5 md:mb-6 text-white">
           <span className="block">
             {line1.map((word, i) => (
               <span key={i} className="word inline-block overflow-hidden mr-[0.22em] last:mr-0">
@@ -172,17 +172,17 @@ export default function Hero() {
 
         {/* Sub + CTAs */}
         <div ref={ctaRef} style={{ opacity: 0 }}>
-          <p className="text-base md:text-lg max-w-xl leading-relaxed mb-10 mx-auto" style={{ color: 'rgba(255,255,255,0.55)' }}>
+          <p className="text-sm md:text-lg max-w-xl leading-relaxed mb-8 md:mb-10 mx-auto" style={{ color: 'rgba(255,255,255,0.55)' }}>
             The multimedia platform connecting independent artists with honest reviews,
             real exposure, and the tools to get organized, visible, and discovered.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-row flex-wrap items-center justify-center gap-3 md:gap-4">
             <motion.a
               href="#reviews"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2 px-9 py-4 rounded-full font-bold text-sm text-white transition-shadow duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.6)]"
+              className="inline-flex items-center gap-2 px-7 py-3.5 md:px-9 md:py-4 rounded-full font-bold text-sm text-white transition-shadow duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.6)]"
               style={{ background: 'linear-gradient(90deg, #8B5CF6, #38BDF8)' }}
             >
               Explore Reviews
@@ -191,7 +191,7 @@ export default function Hero() {
               href="#submit"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2 px-9 py-4 rounded-full font-bold text-sm border transition-all duration-300 text-white hover:border-[#8B5CF6]"
+              className="inline-flex items-center gap-2 px-7 py-3.5 md:px-9 md:py-4 rounded-full font-bold text-sm border transition-all duration-300 text-white hover:border-[#8B5CF6]"
               style={{ borderColor: 'rgba(255,255,255,0.25)' }}
             >
               Submit Your Music

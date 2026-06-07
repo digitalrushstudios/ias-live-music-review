@@ -91,16 +91,16 @@ export default function Stats() {
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x" style={{ '--tw-divide-opacity': 1 } as CSSProperties}>
+        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x" style={{ '--tw-divide-opacity': 1, borderColor: '#e2e2e0' } as CSSProperties}>
           {STATS.map((stat, i) => (
             <div
               key={i}
-              className="flex flex-col items-center text-center py-10 sm:py-0 sm:px-10 first:pt-0 last:pb-0"
+              className="flex flex-col items-center text-center py-8 sm:py-0 sm:px-10 first:pt-0 last:pb-0"
               style={{ borderColor: '#e2e2e0' }}
             >
               {/* Huge gradient number */}
               <span
-                className="text-[80px] md:text-[104px] lg:text-[120px] font-black tracking-tight leading-none mb-3"
+                className="text-[60px] sm:text-[80px] md:text-[104px] lg:text-[120px] font-black tracking-tight leading-none mb-3"
                 style={{
                   background: 'linear-gradient(135deg, #8B5CF6 0%, #38BDF8 100%)',
                   WebkitBackgroundClip: 'text',

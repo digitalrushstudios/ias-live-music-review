@@ -73,7 +73,7 @@ function ReviewCard({ card, large = false }: CardProps) {
   return (
     <motion.article
       className={`relative overflow-hidden rounded-2xl border border-stroke group cursor-pointer ${
-        large ? 'min-h-[460px]' : 'min-h-[220px]'
+        large ? 'min-h-[320px] md:min-h-[460px]' : 'min-h-[180px] md:min-h-[220px]'
       }`}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
@@ -183,7 +183,7 @@ export default function FeaturedReviews() {
   const gridRef = useStaggerReveal<HTMLDivElement>('article', { stagger: 0.12 })
 
   return (
-    <section id="reviews" className="py-24 md:py-32 px-6 max-w-7xl mx-auto">
+    <section id="reviews" className="py-16 md:py-32 px-4 sm:px-6 max-w-7xl mx-auto">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
         <div>
           <span className="block text-[10px] font-semibold tracking-[0.28em] uppercase text-muted mb-3">
@@ -209,11 +209,11 @@ export default function FeaturedReviews() {
       </div>
 
       {/* Editorial grid: large card left, 3 small cards stacked right */}
-      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
         <div className="md:col-span-2">
           <ReviewCard card={REVIEWS[0]} large />
         </div>
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-1 gap-3 md:gap-4">
           {REVIEWS.slice(1).map(card => (
             <ReviewCard key={card.title} card={card} />
           ))}

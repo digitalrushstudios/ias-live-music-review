@@ -9,7 +9,7 @@ export default function YouTubeFeature() {
     <section className="py-20 md:py-28 px-6 border-b" style={{ borderColor: '#e2e2e0', background: '#f5f5f3' }}>
       <div className="max-w-7xl mx-auto">
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
 
           {/* Video embed */}
           <div ref={ref} className="w-full lg:w-[58%] shrink-0">

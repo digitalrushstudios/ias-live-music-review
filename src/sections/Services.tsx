@@ -126,14 +126,14 @@ export default function Services() {
       className="py-24 md:py-32 border-y"
       style={{ borderColor: '#e2e2e0', background: '#ffffff' }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* Section header */}
-        <div ref={headRef} className="mb-20 overflow-hidden">
+        <div ref={headRef} className="mb-12 md:mb-20 overflow-hidden">
           <span className="block text-[10px] font-semibold tracking-[0.28em] uppercase text-muted mb-4">
             What We Offer
           </span>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.0]">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.0]">
             {['Our', 'Services'].map((word, i) => (
               <span key={i} className="inline-block overflow-hidden mr-[0.18em]">
                 <span
@@ -179,12 +179,12 @@ export default function Services() {
                   }}
                 />
 
-                <div className="py-12 md:py-16 grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-8 lg:gap-16 items-start">
+                <div className="py-8 md:py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-5 lg:gap-16 items-start">
 
                   {/* Left: number + icon */}
-                  <div className="svc-icon flex items-center gap-4 lg:flex-col lg:items-start lg:gap-3 lg:w-24">
+                  <div className="svc-icon flex items-center gap-3 lg:flex-col lg:items-start lg:gap-3 lg:w-24">
                     <span
-                      className="text-[56px] lg:text-[72px] font-black leading-none tabular-nums transition-colors duration-300"
+                      className="text-[40px] sm:text-[56px] lg:text-[72px] font-black leading-none tabular-nums transition-colors duration-300"
                       style={{ color: 'transparent', WebkitTextStroke: `1.5px ${svc.accentColor}40` }}
                     >
                       {svc.num}
