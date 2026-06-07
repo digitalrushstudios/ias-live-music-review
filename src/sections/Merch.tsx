@@ -227,8 +227,34 @@ export default function Merch() {
         </div>
       </div>
 
+      {/* ── Lifestyle Editorial Photo ───────────────────────────────── */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-16">
+        <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '21/9' }}>
+          <img
+            src="/ias-live-music-review/assets/ias-couch-mockup.png"
+            alt="iAS Merch lifestyle — hoodie in the studio"
+            className="w-full h-full object-cover object-center"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(90deg, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.15) 50%, transparent 100%)' }}
+          />
+          <div className="absolute left-0 top-0 bottom-0 flex flex-col justify-center p-8 md:p-12">
+            <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-3" style={{ color: '#8B5CF6' }}>
+              iAS Lifestyle
+            </p>
+            <p className="text-white font-black text-2xl md:text-3xl tracking-tight leading-tight max-w-xs">
+              Wear it in<br />
+              <span className="accent-gradient-text" style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}>
+                the studio.
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* ── Product Grid ────────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
           <div>
             <span className="block text-[10px] font-semibold tracking-[0.28em] uppercase mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>

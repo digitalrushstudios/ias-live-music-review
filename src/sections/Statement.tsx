@@ -58,20 +58,24 @@ export default function Statement() {
       })
 
       // Transitions between panels
+      // Give each panel plenty of dwell time — transition only in the middle third
+      // Total height = 600vh: panel 0 dwells 0-28%, transition 28-44%, panel 1 dwells 44-56%, transition 56-72%, panel 2 dwells 72-100%
+      const TRANSITIONS = [
+        { start: 28, end: 44 },
+        { start: 56, end: 72 },
+      ]
+
       panels.forEach((_unused, i) => {
         if (i === panels.length - 1) return
 
-        const totalSegments = panels.length - 1
-        const segmentSize   = 1 / totalSegments
-        const start = i * segmentSize
-        const end   = (i + 1) * segmentSize
+        const { start, end } = TRANSITIONS[i]
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: `${start * 100}% top`,
-            end:   `${end * 100}% top`,
-            scrub: 0.8,
+            start: `${start}% top`,
+            end:   `${end}% top`,
+            scrub: 1.2,
           },
         })
 
@@ -113,7 +117,7 @@ export default function Statement() {
     /* Outer section sets the total scroll height — 3× viewport per message */
     <div
       ref={sectionRef}
-      style={{ height: `${MESSAGES.length * 100}vh`, background: '#0a0a0a' }}
+      style={{ height: '600vh', background: '#0a0a0a' }}
     >
       {/* Pinned viewport */}
       <div
@@ -157,9 +161,9 @@ export default function Statement() {
               {/* Large headline */}
               <div className="mb-6 md:mb-8">
                 {msg.lines.map((line, li) => (
-                  <div key={li} className="overflow-hidden">
+                  <div key={li} className="overflow-visible">
                     <span
-                      className={`stmt-word block text-[52px] sm:text-[72px] md:text-[96px] lg:text-[120px] font-black leading-[0.95] tracking-tight ${
+                      className={`stmt-word block text-[44px] sm:text-[64px] md:text-[84px] lg:text-[104px] font-black leading-[1.0] tracking-tight ${
                         li === msg.lines.length - 1 && msg.accent ? 'accent-gradient-text' : ''
                       }`}
                       style={

@@ -138,7 +138,7 @@ export default function Hero() {
             src="/ias-live-music-review/assets/ias-logo-tagline-white.png"
             alt="iAS — Independent Artist Spotlight"
             className="w-auto mx-auto"
-            style={{ height: '360px', userSelect: 'none' }}
+            style={{ height: '288px', userSelect: 'none' }}
           />
         </div>
 

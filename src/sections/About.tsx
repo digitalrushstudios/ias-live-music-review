@@ -85,23 +85,40 @@ export default function About() {
               live experiences, education, and strategic exposure for independent creators at every level.
             </p>
 
-            {/* Host photo */}
-            <div className="relative rounded-2xl overflow-hidden border border-stroke" style={{ aspectRatio: '1/1' }}>
-              <img
-                src="/ias-live-music-review/assets/ias-vv-mockup-sq.png"
-                alt="Double V — iAS Live Music Review Host"
-                className="w-full h-full object-cover object-center"
-              />
-              <div
-                className="absolute inset-0"
-                style={{ background: 'linear-gradient(0deg, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.1) 45%, transparent 100%)' }}
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="text-[10px] font-bold tracking-[0.22em] uppercase mb-1" style={{ color: '#8B5CF6' }}>
-                  iAS Live Music Review
-                </p>
-                <p className="text-white font-black text-xl tracking-tight">Double V</p>
-                <p className="text-sm mt-0.5" style={{ color: 'rgba(255,255,255,0.55)' }}>Host &amp; Co-Founder</p>
+            {/* Photos — Double V + studio shot side by side */}
+            <div className="grid grid-cols-2 gap-3">
+              {/* Double V portrait */}
+              <div className="relative rounded-2xl overflow-hidden border border-stroke" style={{ aspectRatio: '1/1' }}>
+                <img
+                  src="/ias-live-music-review/assets/ias-vv-mockup-sq.png"
+                  alt="Double V — iAS Live Music Review Host"
+                  className="w-full h-full object-cover object-center"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{ background: 'linear-gradient(0deg, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.05) 45%, transparent 100%)' }}
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-[9px] font-bold tracking-[0.2em] uppercase mb-0.5" style={{ color: '#8B5CF6' }}>Host</p>
+                  <p className="text-white font-black text-base tracking-tight">Double V</p>
+                </div>
+              </div>
+
+              {/* Studio shot */}
+              <div className="relative rounded-2xl overflow-hidden border border-stroke" style={{ aspectRatio: '1/1' }}>
+                <img
+                  src="/ias-live-music-review/assets/ias-studio-mockup.png"
+                  alt="iAS Studio — Behind the Scenes"
+                  className="w-full h-full object-cover object-center"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{ background: 'linear-gradient(0deg, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.05) 45%, transparent 100%)' }}
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-[9px] font-bold tracking-[0.2em] uppercase mb-0.5" style={{ color: '#38BDF8' }}>Behind the Scenes</p>
+                  <p className="text-white font-black text-base tracking-tight">The Studio</p>
+                </div>
               </div>
             </div>
           </div>
