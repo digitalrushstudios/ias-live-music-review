@@ -17,38 +17,32 @@ const PRODUCTS = [
     name: 'iAS Classic Tee',
     desc: 'Heavyweight cotton. Clean logo placement. Bronx made.',
     tag: 'Apparel',
-    color: 'linear-gradient(145deg, #f5f5f3 0%, #ebebea 100%)',
     accentColor: '#8B5CF6',
-    img: null,
+    img: '/ias-live-music-review/assets/ias-shirts-mockup-sq.png',
     badge: 'Bestseller',
   },
   {
     name: 'iAS Snapback',
     desc: 'Structured 6-panel. Embroidered iAS icon. One size fits most.',
     tag: 'Headwear',
-    color: 'linear-gradient(145deg, #0a0a0a 0%, #1a1a1a 100%)',
     accentColor: '#38BDF8',
-    img: null,
+    img: '/ias-live-music-review/assets/ias-hat-mockup-sq.png',
     badge: null,
-    dark: true,
   },
   {
-    name: 'iAS Hoodie',
-    desc: 'Fleece-lined. Oversized fit. Wearable everywhere.',
+    name: 'iAS Suit Set',
+    desc: 'Clean two-piece. iAS branding. Built to stand out on any stage.',
     tag: 'Apparel',
-    color: 'linear-gradient(145deg, #120720 0%, #1e0c38 100%)',
     accentColor: '#8B5CF6',
-    img: '/ias-live-music-review/assets/mockup-1.png',
+    img: '/ias-live-music-review/assets/ias-suit-mockup-sq.png',
     badge: 'New',
-    dark: true,
   },
   {
     name: 'iAS Tote Bag',
     desc: 'Heavy canvas. Double handles. iAS statement print.',
     tag: 'Accessories',
-    color: 'linear-gradient(145deg, #f5f5f3 0%, #ebebea 100%)',
     accentColor: '#38BDF8',
-    img: null,
+    img: '/ias-live-music-review/assets/ias-tote-mockup-sq.png',
     badge: null,
   },
 ]
@@ -261,31 +255,22 @@ export default function Merch() {
               key={p.name}
               className="merch-card group relative rounded-2xl overflow-hidden border cursor-pointer"
               style={{
-                borderColor: p.dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)',
-                minHeight: 400,
+                borderColor: 'rgba(255,255,255,0.08)',
+                aspectRatio: '1/1',
               }}
               whileHover={{ y: -6, transition: { duration: 0.3, ease: 'easeOut' } }}
             >
-              {/* Background */}
-              <div
-                className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
-                style={{ background: p.color }}
+              {/* Real product photo — fills the 1:1 square */}
+              <img
+                src={p.img}
+                alt={p.name}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
-              {/* Photo if available */}
-              {p.img && (
-                <img
-                  src={p.img}
-                  alt={p.name}
-                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  style={{ opacity: 0.55 }}
-                />
-              )}
-
-              {/* Gradient overlay */}
+              {/* Gradient overlay — darkens bottom for text readability */}
               <div
                 className="absolute inset-0"
-                style={{ background: 'linear-gradient(0deg, rgba(5,5,6,0.95) 0%, rgba(5,5,6,0.1) 55%, transparent 100%)' }}
+                style={{ background: 'linear-gradient(0deg, rgba(5,5,6,0.92) 0%, rgba(5,5,6,0.25) 45%, transparent 100%)' }}
               />
 
               {/* Glow on hover */}
