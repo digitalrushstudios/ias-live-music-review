@@ -46,9 +46,12 @@ export default function Footer() {
         />
 
         <div className="relative z-10 max-w-2xl mx-auto">
-          <p className="text-[10px] font-semibold tracking-[0.32em] uppercase text-muted mb-5">
-            iAS Live Music Review
-          </p>
+          <img
+            src="/ias-live-music-review/assets/ias-logo-tagline-white.png"
+            alt="iAS"
+            className="mx-auto mb-8"
+            style={{ height: '44px', width: 'auto', userSelect: 'none' }}
+          />
 
           <h2 className="text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight mb-6 leading-[1.05]" style={{ color: '#ffffff' }}>
             Bring your sound
@@ -87,16 +90,12 @@ export default function Footer() {
 
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2.5 mb-5">
-              <div
-                className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-                style={{ background: 'linear-gradient(135deg, #8B5CF6, #38BDF8)' }}
-              >
-                <span className="text-white text-[11px] font-black">iAS</span>
-              </div>
-              <span className="font-bold text-sm">
-                iAS <span className="text-muted font-light">Live</span>
-              </span>
+            <div className="mb-6">
+              <img
+                src="/ias-live-music-review/assets/ias-logo-tagline-white.png"
+                alt="iAS"
+                style={{ height: '28px', width: 'auto', userSelect: 'none' }}
+              />
             </div>
 
             <p className="text-sm text-muted leading-relaxed mb-6 max-w-xs">
