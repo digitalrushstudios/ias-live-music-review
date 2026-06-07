@@ -58,13 +58,12 @@ export default function Navbar() {
           <a href="#" className="flex items-center shrink-0 group">
             <motion.img
               whileHover={{ scale: 1.04 }}
-              src="/ias-live-music-review/assets/ias-logo.png"
+              src={scrolled ? '/ias-live-music-review/assets/ias-logo.png' : '/ias-live-music-review/assets/ias-logo-tagline-white.png'}
               alt="iAS"
               style={{
-                height: '32px',
+                height: scrolled ? '32px' : '28px',
                 width: 'auto',
-                filter: scrolled ? 'none' : 'invert(1)',
-                transition: 'filter 0.4s ease',
+                transition: 'height 0.4s ease',
                 userSelect: 'none',
               }}
             />

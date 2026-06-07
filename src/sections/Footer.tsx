@@ -47,10 +47,10 @@ export default function Footer() {
 
         <div className="relative z-10 max-w-2xl mx-auto">
           <img
-            src="/ias-live-music-review/assets/ias-logo.png"
+            src="/ias-live-music-review/assets/ias-logo-tagline-white.png"
             alt="iAS"
             className="mx-auto mb-8"
-            style={{ height: '36px', width: 'auto', filter: 'invert(1)', userSelect: 'none' }}
+            style={{ height: '44px', width: 'auto', userSelect: 'none' }}
           />
 
           <h2 className="text-4xl md:text-5xl lg:text-[64px] font-black tracking-tight mb-6 leading-[1.05]" style={{ color: '#ffffff' }}>
@@ -92,9 +92,9 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <div className="mb-6">
               <img
-                src="/ias-live-music-review/assets/ias-logo.png"
+                src="/ias-live-music-review/assets/ias-logo-tagline-white.png"
                 alt="iAS"
-                style={{ height: '28px', width: 'auto', filter: 'invert(1)', userSelect: 'none' }}
+                style={{ height: '28px', width: 'auto', userSelect: 'none' }}
               />
             </div>
 

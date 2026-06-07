@@ -135,10 +135,10 @@ export default function Hero() {
         {/* Logo with tagline — prominent center */}
         <div ref={logoRef} style={{ opacity: 0 }} className="mb-12">
           <img
-            src="/ias-live-music-review/assets/ias-logo-tagline.png"
+            src="/ias-live-music-review/assets/ias-logo-tagline-white.png"
             alt="iAS — Independent Artist Spotlight"
             className="w-auto mx-auto"
-            style={{ height: '90px', filter: 'invert(1)', userSelect: 'none' }}
+            style={{ height: '90px', userSelect: 'none' }}
           />
         </div>
 
