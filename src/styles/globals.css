@@ -92,11 +92,39 @@
     will-change: transform;
   }
 
+  /* Character-level text split */
+  .char {
+    display: inline-block;
+    will-change: transform, opacity;
+  }
+
+  /* Clip reveal — parent clips, child slides up */
+  .clip-reveal {
+    overflow: hidden;
+    display: block;
+  }
+  .clip-reveal-inner {
+    display: block;
+    will-change: transform;
+  }
+
   .gradient-border-top::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, #8B5CF6, #38BDF8, transparent);
+  }
+
+  /* Animated line draw */
+  .line-draw {
+    transform-origin: left center;
+    transform: scaleX(0);
+  }
+
+  /* Number ticker */
+  .ticker-wrap {
+    overflow: hidden;
+    display: inline-block;
   }
 }
