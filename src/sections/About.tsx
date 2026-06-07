@@ -80,10 +80,30 @@ export default function About() {
               and published artists across its print and digital platforms.
             </p>
 
-            <p className="text-muted text-base leading-relaxed">
+            <p className="text-muted text-base leading-relaxed mb-10">
               Over the next 3 to 5 years, iAS aims to become a full media ecosystem: publishing,
               live experiences, education, and strategic exposure for independent creators at every level.
             </p>
+
+            {/* Host photo */}
+            <div className="relative rounded-2xl overflow-hidden border border-stroke" style={{ aspectRatio: '4/3' }}>
+              <img
+                src="/ias-live-music-review/assets/mockup-1.png"
+                alt="Double V — iAS Live Music Review Host"
+                className="w-full h-full object-cover object-top"
+              />
+              <div
+                className="absolute inset-0"
+                style={{ background: 'linear-gradient(0deg, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.1) 45%, transparent 100%)' }}
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="text-[10px] font-bold tracking-[0.22em] uppercase mb-1" style={{ color: '#8B5CF6' }}>
+                  iAS Live Music Review
+                </p>
+                <p className="text-white font-black text-xl tracking-tight">Double V</p>
+                <p className="text-sm mt-0.5" style={{ color: 'rgba(255,255,255,0.55)' }}>Host &amp; Co-Founder</p>
+              </div>
+            </div>
           </div>
 
           {/* Right: brand pillars */}
