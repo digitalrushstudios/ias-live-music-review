@@ -9,7 +9,7 @@ import About from './sections/About'
 import CoverageCategories from './sections/CoverageCategories'
 import ArtistOfTheQuarter from './sections/ArtistOfTheQuarter'
 import ArtistSubmissionCTA from './sections/ArtistSubmissionCTA'
-import Gallery from './sections/Gallery'
+import Merch from './sections/Merch'
 import Stats from './sections/Stats'
 import Footer from './sections/Footer'
 
@@ -41,7 +41,7 @@ export default function App() {
           <CoverageCategories />
           <ArtistOfTheQuarter />
           <ArtistSubmissionCTA />
-          <Gallery />
+          <Merch />
           <Stats />
         </main>
         <Footer />

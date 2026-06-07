@@ -1,0 +1,360 @@
+import { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ArrowUpRight, ShoppingBag } from 'lucide-react'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const TICKER_ITEMS = [
+  'iAS Merch', '✦', 'Wear the Movement', '✦',
+  'Independent Artist Lifestyle', '✦', 'Represent iAS', '✦',
+  'Limited Drops', '✦', 'Bronx Born. Culture Driven.', '✦',
+]
+
+const PRODUCTS = [
+  {
+    name: 'iAS Classic Tee',
+    desc: 'Heavyweight cotton. Clean logo placement. Bronx made.',
+    tag: 'Apparel',
+    color: 'linear-gradient(145deg, #f5f5f3 0%, #ebebea 100%)',
+    accentColor: '#8B5CF6',
+    img: null,
+    badge: 'Bestseller',
+  },
+  {
+    name: 'iAS Snapback',
+    desc: 'Structured 6-panel. Embroidered iAS icon. One size fits most.',
+    tag: 'Headwear',
+    color: 'linear-gradient(145deg, #0a0a0a 0%, #1a1a1a 100%)',
+    accentColor: '#38BDF8',
+    img: null,
+    badge: null,
+    dark: true,
+  },
+  {
+    name: 'iAS Hoodie',
+    desc: 'Fleece-lined. Oversized fit. Wearable everywhere.',
+    tag: 'Apparel',
+    color: 'linear-gradient(145deg, #120720 0%, #1e0c38 100%)',
+    accentColor: '#8B5CF6',
+    img: '/ias-live-music-review/assets/mockup-1.png',
+    badge: 'New',
+    dark: true,
+  },
+  {
+    name: 'iAS Tote Bag',
+    desc: 'Heavy canvas. Double handles. iAS statement print.',
+    tag: 'Accessories',
+    color: 'linear-gradient(145deg, #f5f5f3 0%, #ebebea 100%)',
+    accentColor: '#38BDF8',
+    img: null,
+    badge: null,
+  },
+]
+
+export default function Merch() {
+  const sectionRef   = useRef<HTMLElement>(null)
+  const videoRef     = useRef<HTMLDivElement>(null)
+  const headlineRef  = useRef<HTMLDivElement>(null)
+  const cardsRef     = useRef<HTMLDivElement>(null)
+  const videoElRef   = useRef<HTMLVideoElement>(null)
+
+  // Parallax on video container as you scroll through section
+  useEffect(() => {
+    if (!videoRef.current || !sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.to(videoRef.current, {
+        yPercent: -8,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      })
+    })
+    return () => ctx.revert()
+  }, [])
+
+  // Headline word stagger reveal
+  useEffect(() => {
+    if (!headlineRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headlineRef.current!.querySelectorAll('.merch-word'),
+        { y: '105%', opacity: 0 },
+        {
+          y: '0%',
+          opacity: 1,
+          stagger: 0.08,
+          duration: 0.9,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: headlineRef.current,
+            start: 'top 85%',
+          },
+        }
+      )
+    })
+    return () => ctx.revert()
+  }, [])
+
+  // Cards stagger slide-up
+  useEffect(() => {
+    if (!cardsRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        cardsRef.current!.querySelectorAll('.merch-card'),
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.14,
+          duration: 0.85,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: cardsRef.current,
+            start: 'top 80%',
+          },
+        }
+      )
+    })
+    return () => ctx.revert()
+  }, [])
+
+  return (
+    <section ref={sectionRef} id="merch" className="overflow-hidden" style={{ background: '#0a0a0a' }}>
+
+      {/* ── 16:9 Video Hero ─────────────────────────────────────────── */}
+      <div ref={videoRef} className="relative w-full" style={{ aspectRatio: '16/9', maxHeight: '90vh' }}>
+        <video
+          ref={videoElRef}
+          src="/ias-live-music-review/assets/shirt-mockup-video-1.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        />
+
+        {/* Dark gradient overlay — top & bottom */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.1) 35%, rgba(10,10,10,0.1) 65%, rgba(10,10,10,0.85) 100%)' }}
+        />
+
+        {/* Accent glow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(139,92,246,0.12) 0%, transparent 70%)' }}
+        />
+
+        {/* Top label */}
+        <div className="absolute top-8 left-8">
+          <span className="text-[10px] font-bold tracking-[0.28em] uppercase" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            iAS Multi Media Group
+          </span>
+        </div>
+
+        {/* Bottom copy */}
+        <div ref={headlineRef} className="absolute bottom-0 left-0 right-0 p-8 md:p-14">
+          <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-4" style={{ color: '#8B5CF6' }}>
+            The Collection
+          </p>
+          <h2 className="overflow-hidden mb-2">
+            <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[84px] font-black leading-[1.0] tracking-tight text-white">
+              {['Wear', 'the'].map((w, i) => (
+                <span key={i} className="inline-block overflow-hidden mr-[0.2em]">
+                  <span className="merch-word block">{w}</span>
+                </span>
+              ))}
+            </span>
+          </h2>
+          <h2 className="overflow-hidden mb-8">
+            <span
+              className="block text-5xl sm:text-6xl md:text-7xl lg:text-[84px] font-black leading-[1.0] tracking-tight"
+              style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}
+            >
+              {['Movement.'].map((w, i) => (
+                <span key={i} className="inline-block overflow-hidden">
+                  <span
+                    className="merch-word block"
+                    style={{
+                      background: 'linear-gradient(90deg, #8B5CF6 0%, #38BDF8 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    {w}
+                  </span>
+                </span>
+              ))}
+            </span>
+          </h2>
+
+          <motion.a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeiV6NbCe9DsPoL6SN2swO3NVxz5RGvmctZ6mMYAn7C7141zA/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-bold text-sm text-white hover:shadow-[0_0_44px_rgba(139,92,246,0.55)] transition-shadow duration-300"
+            style={{ background: 'linear-gradient(90deg, #8B5CF6, #38BDF8)' }}
+          >
+            <ShoppingBag size={14} />
+            Get Notified
+          </motion.a>
+        </div>
+      </div>
+
+      {/* ── Ticker ─────────────────────────────────────────────────── */}
+      <div className="border-y overflow-hidden py-3.5" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
+        <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: 'linear-gradient(90deg, #0a0a0a, transparent)' }} />
+        <div className="flex whitespace-nowrap select-none">
+          <ul className="animate-marquee flex items-center gap-10 pr-10 list-none">
+            {TICKER_ITEMS.map((t, i) => (
+              <li key={i} className="text-[10px] font-semibold tracking-[0.22em] uppercase"
+                style={{ color: t === '✦' ? '#8B5CF6' : 'rgba(255,255,255,0.35)' }}>
+                {t}
+              </li>
+            ))}
+          </ul>
+          <ul className="animate-marquee2 flex items-center gap-10 pr-10 list-none" aria-hidden>
+            {TICKER_ITEMS.map((t, i) => (
+              <li key={i} className="text-[10px] font-semibold tracking-[0.22em] uppercase"
+                style={{ color: t === '✦' ? '#8B5CF6' : 'rgba(255,255,255,0.35)' }}>
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* ── Product Grid ────────────────────────────────────────────── */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 md:py-32">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
+          <div>
+            <span className="block text-[10px] font-semibold tracking-[0.28em] uppercase mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
+              iAS Merch
+            </span>
+            <h3 className="text-4xl md:text-5xl font-black tracking-tight text-white">
+              The{' '}
+              <span
+                style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}
+                className="accent-gradient-text"
+              >
+                Lineup
+              </span>
+            </h3>
+          </div>
+          <p className="text-sm max-w-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            Merch drops coming soon. Get notified and be first to represent the movement.
+          </p>
+        </div>
+
+        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {PRODUCTS.map((p) => (
+            <motion.div
+              key={p.name}
+              className="merch-card group relative rounded-2xl overflow-hidden border cursor-pointer"
+              style={{
+                borderColor: p.dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)',
+                minHeight: 400,
+              }}
+              whileHover={{ y: -6, transition: { duration: 0.3, ease: 'easeOut' } }}
+            >
+              {/* Background */}
+              <div
+                className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
+                style={{ background: p.color }}
+              />
+
+              {/* Photo if available */}
+              {p.img && (
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  style={{ opacity: 0.55 }}
+                />
+              )}
+
+              {/* Gradient overlay */}
+              <div
+                className="absolute inset-0"
+                style={{ background: 'linear-gradient(0deg, rgba(5,5,6,0.95) 0%, rgba(5,5,6,0.1) 55%, transparent 100%)' }}
+              />
+
+              {/* Glow on hover */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{ background: `radial-gradient(ellipse 70% 50% at 50% 100%, ${p.accentColor}22 0%, transparent 70%)` }}
+              />
+
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col justify-between p-6">
+                {/* Top row */}
+                <div className="flex items-start justify-between">
+                  <span
+                    className="text-[9px] font-bold tracking-[0.22em] uppercase px-3 py-1.5 rounded-full border"
+                    style={{ color: p.accentColor, borderColor: `${p.accentColor}44`, background: `${p.accentColor}11` }}
+                  >
+                    {p.tag}
+                  </span>
+                  {p.badge && (
+                    <span
+                      className="text-[9px] font-black tracking-[0.14em] uppercase px-2.5 py-1 rounded-full text-white"
+                      style={{ background: p.accentColor }}
+                    >
+                      {p.badge}
+                    </span>
+                  )}
+                </div>
+
+                {/* Bottom */}
+                <div>
+                  <h4 className="text-xl font-black tracking-tight text-white mb-1.5">{p.name}</h4>
+                  <p className="text-xs leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.5)' }}>{p.desc}</p>
+                  <div
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300"
+                    style={{ color: p.accentColor }}
+                  >
+                    Notify Me <ArrowUpRight size={12} />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA strip */}
+        <div
+          className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 p-8 rounded-2xl border"
+          style={{ borderColor: 'rgba(139,92,246,0.25)', background: 'rgba(139,92,246,0.07)' }}
+        >
+          <div>
+            <p className="text-white font-black text-xl tracking-tight mb-1">Be first to shop the drop.</p>
+            <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
+              Submit your info and we'll notify you when iAS merch is available.
+            </p>
+          </div>
+          <motion.a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeiV6NbCe9DsPoL6SN2swO3NVxz5RGvmctZ6mMYAn7C7141zA/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+            className="shrink-0 inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-sm text-white hover:shadow-[0_0_36px_rgba(139,92,246,0.5)] transition-shadow duration-300"
+            style={{ background: 'linear-gradient(90deg, #8B5CF6, #38BDF8)' }}
+          >
+            <ShoppingBag size={13} />
+            Get Notified
+          </motion.a>
+        </div>
+      </div>
+    </section>
+  )
+}
