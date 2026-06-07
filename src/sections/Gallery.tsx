@@ -58,10 +58,37 @@ export default function Gallery() {
           ref={trackRef}
           className="flex gap-3 px-6 md:px-14"
           drag="x"
-          dragConstraints={{ right: 0, left: -(GALLERY_ITEMS.length * 280) }}
+          dragConstraints={{ right: 0, left: -((GALLERY_ITEMS.length + 1) * 280) }}
           dragElastic={0.12}
           style={{ width: 'max-content' }}
         >
+          {/* iAS shirt mockup video — featured first card */}
+          <motion.div
+            className="relative overflow-hidden rounded-2xl shrink-0 group"
+            style={{ width: 260, height: 380 }}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+          >
+            <video
+              src="/ias-live-music-review/assets/shirt-mockup-video-1.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: 'linear-gradient(0deg, rgba(5,5,6,0.85) 0%, transparent 55%)' }}
+            />
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <p className="text-[10px] font-bold tracking-[0.22em] uppercase mb-1" style={{ color: '#8B5CF6' }}>
+                iAS Merch
+              </p>
+              <span className="text-white text-sm font-bold tracking-tight">The Collection</span>
+            </div>
+          </motion.div>
+
           {GALLERY_ITEMS.map((item, i) => (
             <motion.div
               key={i}
