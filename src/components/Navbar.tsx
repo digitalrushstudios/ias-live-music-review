@@ -55,17 +55,19 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between gap-6">
 
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 shrink-0 group">
-            <motion.div
-              whileHover={{ scale: 1.08 }}
-              className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-              style={{ background: 'linear-gradient(135deg, #8B5CF6, #38BDF8)' }}
-            >
-              <span className="text-white text-[10px] font-black tracking-tight">iAS</span>
-            </motion.div>
-            <span className="font-bold text-sm tracking-wide hidden sm:block">
-              iAS <span className="text-muted font-light">Live</span>
-            </span>
+          <a href="#" className="flex items-center shrink-0 group">
+            <motion.img
+              whileHover={{ scale: 1.04 }}
+              src="/ias-live-music-review/assets/ias-logo.png"
+              alt="iAS"
+              style={{
+                height: '32px',
+                width: 'auto',
+                filter: scrolled ? 'none' : 'invert(1)',
+                transition: 'filter 0.4s ease',
+                userSelect: 'none',
+              }}
+            />
           </a>
 
           {/* Desktop Nav */}
@@ -78,7 +80,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   className="relative text-sm transition-colors duration-200 tracking-wide py-1 group"
-                  style={{ color: isActive ? '#0a0a0a' : '#6b6b6b' }}
+                  style={{ color: isActive ? (scrolled ? '#0a0a0a' : '#ffffff') : (scrolled ? '#6b6b6b' : 'rgba(255,255,255,0.6)') }}
                 >
                   {link.label}
                   {/* Animated underline */}
@@ -102,7 +104,8 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href="#submit"
-              className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold px-5 py-2 rounded-full border border-stroke hover:border-[#8B5CF6] transition-all duration-300 hover:bg-white/5 group"
+              className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold px-5 py-2 rounded-full border hover:border-[#8B5CF6] transition-all duration-300 hover:bg-white/10 group"
+              style={{ borderColor: scrolled ? '#e2e2e0' : 'rgba(255,255,255,0.25)', color: scrolled ? '#0a0a0a' : '#ffffff' }}
             >
               Submit
               <ArrowUpRight size={13} className="opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
