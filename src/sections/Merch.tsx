@@ -249,46 +249,25 @@ export default function Merch() {
           </p>
         </div>
 
-        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {PRODUCTS.map((p) => (
             <motion.div
               key={p.name}
-              className="merch-card group relative rounded-2xl overflow-hidden border cursor-pointer"
-              style={{
-                borderColor: 'rgba(255,255,255,0.08)',
-                aspectRatio: '1/1',
-              }}
+              className="merch-card group flex flex-col cursor-pointer"
               whileHover={{ y: -6, transition: { duration: 0.3, ease: 'easeOut' } }}
             >
-              {/* Real product photo — fills the 1:1 square */}
-              <img
-                src={p.img}
-                alt={p.name}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-
-              {/* Gradient overlay — darkens bottom for text readability */}
+              {/* 1:1 photo — clean, no overlay text */}
               <div
-                className="absolute inset-0"
-                style={{ background: 'linear-gradient(0deg, rgba(5,5,6,0.92) 0%, rgba(5,5,6,0.25) 45%, transparent 100%)' }}
-              />
-
-              {/* Glow on hover */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{ background: `radial-gradient(ellipse 70% 50% at 50% 100%, ${p.accentColor}22 0%, transparent 70%)` }}
-              />
-
-              {/* Content */}
-              <div className="absolute inset-0 flex flex-col justify-between p-6">
-                {/* Top row */}
-                <div className="flex items-start justify-between">
-                  <span
-                    className="text-[9px] font-bold tracking-[0.22em] uppercase px-3 py-1.5 rounded-full border"
-                    style={{ color: p.accentColor, borderColor: `${p.accentColor}44`, background: `${p.accentColor}11` }}
-                  >
-                    {p.tag}
-                  </span>
+                className="relative rounded-2xl overflow-hidden border mb-4"
+                style={{ aspectRatio: '1/1', borderColor: 'rgba(255,255,255,0.08)' }}
+              >
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Subtle top badge only — doesn't cover the photo */}
+                <div className="absolute top-3 left-3 flex items-center gap-2">
                   {p.badge && (
                     <span
                       className="text-[9px] font-black tracking-[0.14em] uppercase px-2.5 py-1 rounded-full text-white"
@@ -298,18 +277,31 @@ export default function Merch() {
                     </span>
                   )}
                 </div>
+                {/* Hover glow border */}
+                <div
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+                  style={{ boxShadow: `inset 0 0 0 1px ${p.accentColor}55` }}
+                />
+              </div>
 
-                {/* Bottom */}
-                <div>
-                  <h4 className="text-xl font-black tracking-tight text-white mb-1.5">{p.name}</h4>
-                  <p className="text-xs leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.5)' }}>{p.desc}</p>
-                  <div
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300"
+              {/* Text below photo */}
+              <div className="px-1">
+                <div className="flex items-center justify-between mb-1.5">
+                  <span
+                    className="text-[9px] font-bold tracking-[0.22em] uppercase"
                     style={{ color: p.accentColor }}
                   >
-                    Notify Me <ArrowUpRight size={12} />
+                    {p.tag}
+                  </span>
+                  <div
+                    className="inline-flex items-center gap-1 text-[10px] font-semibold opacity-0 group-hover:opacity-100 translate-x-1 group-hover:translate-x-0 transition-all duration-300"
+                    style={{ color: p.accentColor }}
+                  >
+                    Notify Me <ArrowUpRight size={11} />
                   </div>
                 </div>
+                <h4 className="text-base font-black tracking-tight text-white mb-1">{p.name}</h4>
+                <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>{p.desc}</p>
               </div>
             </motion.div>
           ))}

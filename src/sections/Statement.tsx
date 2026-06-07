@@ -7,11 +7,11 @@ gsap.registerPlugin(ScrollTrigger)
 const MESSAGES = [
   {
     lines: ['Independent music.', 'Real reactions.'],
-    sub: 'Making money with music is hard — iAS makes it feel possible.',
+    sub: 'Your music deserves to be heard — by real people, in real time, with real feedback.',
   },
   {
-    lines: ["It doesn't", 'have to be hard.'],
-    sub: 'Live reviews, honest feedback, and a real audience in your corner.',
+    lines: ['Your art is', 'your legacy.'],
+    sub: '"The most courageous act is still to think for yourself. Aloud." — Coco Chanel',
   },
   {
     lines: ['Get organized.', 'Get discovered.'],
